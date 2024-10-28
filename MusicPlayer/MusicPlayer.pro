@@ -13,6 +13,7 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
+    LinkedList.h \
     MusicPlayer.h
 
 FORMS += \
