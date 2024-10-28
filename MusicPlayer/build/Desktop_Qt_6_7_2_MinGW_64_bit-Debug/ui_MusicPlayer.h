@@ -26,6 +26,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QVBoxLayout *verticalLayout_5;
     QWidget *searchWidget;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -53,10 +54,12 @@ public:
     QWidget *scrollAreaWidgetContents_2;
     QPushButton *deleteSongPB;
     QWidget *widget_3;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
-    QLabel *label_3;
+    QVBoxLayout *verticalLayout_6;
+    QLabel *songNameL;
+    QHBoxLayout *horizontalLayout_6;
+    QPushButton *prePB;
+    QPushButton *StopPB;
+    QPushButton *nextPB;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -66,9 +69,12 @@ public:
         MainWindow->setCursor(QCursor(Qt::CursorShape::ArrowCursor));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        verticalLayout_5 = new QVBoxLayout(centralwidget);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName("verticalLayout_5");
+        verticalLayout_5->setContentsMargins(-1, -1, -1, 11);
         searchWidget = new QWidget(centralwidget);
         searchWidget->setObjectName("searchWidget");
-        searchWidget->setGeometry(QRect(0, 3, 591, 101));
         verticalLayout_2 = new QVBoxLayout(searchWidget);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout = new QVBoxLayout();
@@ -96,9 +102,11 @@ public:
 
         verticalLayout_2->addLayout(verticalLayout);
 
+
+        verticalLayout_5->addWidget(searchWidget);
+
         mianWidget = new QWidget(centralwidget);
         mianWidget->setObjectName("mianWidget");
-        mianWidget->setGeometry(QRect(20, 100, 571, 311));
         horizontalLayout_5 = new QHBoxLayout(mianWidget);
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         horizontalLayout_4 = new QHBoxLayout();
@@ -127,7 +135,7 @@ public:
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 263, 237));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 269, 433));
         playListsSongsSA->setWidget(scrollAreaWidgetContents);
 
         verticalLayout_3->addWidget(playListsSongsSA);
@@ -164,7 +172,7 @@ public:
         songsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 262, 237));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 268, 433));
         songsSA->setWidget(scrollAreaWidgetContents_2);
 
         verticalLayout_4->addWidget(songsSA);
@@ -180,21 +188,41 @@ public:
 
         horizontalLayout_5->addLayout(horizontalLayout_4);
 
+
+        verticalLayout_5->addWidget(mianWidget);
+
         widget_3 = new QWidget(centralwidget);
         widget_3->setObjectName("widget_3");
-        widget_3->setGeometry(QRect(20, 420, 561, 111));
-        pushButton_2 = new QPushButton(widget_3);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(80, 40, 80, 18));
-        pushButton_3 = new QPushButton(widget_3);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(250, 40, 80, 18));
-        pushButton_4 = new QPushButton(widget_3);
-        pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(390, 40, 80, 18));
-        label_3 = new QLabel(widget_3);
-        label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(80, 10, 141, 16));
+        verticalLayout_6 = new QVBoxLayout(widget_3);
+        verticalLayout_6->setObjectName("verticalLayout_6");
+        songNameL = new QLabel(widget_3);
+        songNameL->setObjectName("songNameL");
+
+        verticalLayout_6->addWidget(songNameL);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        prePB = new QPushButton(widget_3);
+        prePB->setObjectName("prePB");
+
+        horizontalLayout_6->addWidget(prePB);
+
+        StopPB = new QPushButton(widget_3);
+        StopPB->setObjectName("StopPB");
+
+        horizontalLayout_6->addWidget(StopPB);
+
+        nextPB = new QPushButton(widget_3);
+        nextPB->setObjectName("nextPB");
+
+        horizontalLayout_6->addWidget(nextPB);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_6);
+
+
+        verticalLayout_5->addWidget(widget_3);
+
         MainWindow->setCentralWidget(centralwidget);
 
         retranslateUi(MainWindow);
@@ -214,10 +242,10 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "Songs", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         deleteSongPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "song name", nullptr));
+        songNameL->setText(QCoreApplication::translate("MainWindow", "song name", nullptr));
+        prePB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        StopPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        nextPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
     } // retranslateUi
 
 };
