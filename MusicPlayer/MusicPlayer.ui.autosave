@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>595</width>
-    <height>638</height>
+    <width>600</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="cursor">
@@ -121,8 +121,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>269</width>
-                 <height>421</height>
+                 <width>271</width>
+                 <height>433</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -134,7 +134,7 @@
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>20</width>
-                    <height>406</height>
+                    <height>418</height>
                    </size>
                   </property>
                  </spacer>
@@ -184,8 +184,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>268</width>
-                 <height>421</height>
+                 <width>271</width>
+                 <height>433</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -197,7 +197,7 @@
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>20</width>
-                    <height>406</height>
+                    <height>418</height>
                    </size>
                   </property>
                  </spacer>

@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -31,8 +32,10 @@ public:
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
+    QSpacerItem *horizontalSpacer_2;
     QLineEdit *searchLE;
     QPushButton *searchPB;
+    QSpacerItem *horizontalSpacer;
     QLabel *searchBoxErrorLB;
     QWidget *mianWidget;
     QHBoxLayout *horizontalLayout_5;
@@ -44,6 +47,8 @@ public:
     QPushButton *addPlayListPB;
     QScrollArea *playListsSongsSA;
     QWidget *scrollAreaWidgetContents;
+    QVBoxLayout *verticalLayout_7;
+    QSpacerItem *verticalSpacer;
     QPushButton *deletePlayListPB;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout_4;
@@ -52,14 +57,23 @@ public:
     QPushButton *pushButton;
     QScrollArea *songsSA;
     QWidget *scrollAreaWidgetContents_2;
+    QVBoxLayout *verticalLayout_8;
+    QSpacerItem *verticalSpacer_2;
     QPushButton *deleteSongPB;
     QWidget *widget_3;
     QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout_7;
+    QSpacerItem *horizontalSpacer_6;
     QLabel *songNameL;
+    QSpacerItem *horizontalSpacer_5;
     QHBoxLayout *horizontalLayout_6;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *loopPB;
     QPushButton *prePB;
     QPushButton *StopPB;
     QPushButton *nextPB;
+    QPushButton *shufflePB;
+    QSpacerItem *horizontalSpacer_4;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -81,6 +95,10 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer_2);
+
         searchLE = new QLineEdit(searchWidget);
         searchLE->setObjectName("searchLE");
 
@@ -90,6 +108,10 @@ public:
         searchPB->setObjectName("searchPB");
 
         horizontalLayout->addWidget(searchPB);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout->addItem(horizontalSpacer);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -135,7 +157,13 @@ public:
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 269, 433));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 269, 421));
+        verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
+        verticalLayout_7->setObjectName("verticalLayout_7");
+        verticalSpacer = new QSpacerItem(20, 406, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout_7->addItem(verticalSpacer);
+
         playListsSongsSA->setWidget(scrollAreaWidgetContents);
 
         verticalLayout_3->addWidget(playListsSongsSA);
@@ -172,7 +200,13 @@ public:
         songsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 268, 433));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 268, 421));
+        verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
+        verticalLayout_8->setObjectName("verticalLayout_8");
+        verticalSpacer_2 = new QSpacerItem(20, 406, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+
+        verticalLayout_8->addItem(verticalSpacer_2);
+
         songsSA->setWidget(scrollAreaWidgetContents_2);
 
         verticalLayout_4->addWidget(songsSA);
@@ -195,13 +229,35 @@ public:
         widget_3->setObjectName("widget_3");
         verticalLayout_6 = new QVBoxLayout(widget_3);
         verticalLayout_6->setObjectName("verticalLayout_6");
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName("horizontalLayout_7");
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_6);
+
         songNameL = new QLabel(widget_3);
         songNameL->setObjectName("songNameL");
 
-        verticalLayout_6->addWidget(songNameL);
+        horizontalLayout_7->addWidget(songNameL);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_5);
+
+
+        verticalLayout_6->addLayout(horizontalLayout_7);
 
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_3);
+
+        loopPB = new QPushButton(widget_3);
+        loopPB->setObjectName("loopPB");
+
+        horizontalLayout_6->addWidget(loopPB);
+
         prePB = new QPushButton(widget_3);
         prePB->setObjectName("prePB");
 
@@ -216,6 +272,15 @@ public:
         nextPB->setObjectName("nextPB");
 
         horizontalLayout_6->addWidget(nextPB);
+
+        shufflePB = new QPushButton(widget_3);
+        shufflePB->setObjectName("shufflePB");
+
+        horizontalLayout_6->addWidget(shufflePB);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_4);
 
 
         verticalLayout_6->addLayout(horizontalLayout_6);
@@ -243,9 +308,11 @@ public:
         pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         deleteSongPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         songNameL->setText(QCoreApplication::translate("MainWindow", "song name", nullptr));
+        loopPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         prePB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         StopPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         nextPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        shufflePB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
     } // retranslateUi
 
 };
