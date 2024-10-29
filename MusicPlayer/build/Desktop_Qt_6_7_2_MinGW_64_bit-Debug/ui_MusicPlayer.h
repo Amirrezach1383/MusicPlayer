@@ -10,6 +10,7 @@
 #define UI_MUSICPLAYER_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
@@ -17,6 +18,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -66,6 +68,7 @@ public:
     QSpacerItem *horizontalSpacer_6;
     QLabel *songNameL;
     QSpacerItem *horizontalSpacer_5;
+    QSlider *horizontalSlider;
     QHBoxLayout *horizontalLayout_6;
     QSpacerItem *horizontalSpacer_3;
     QPushButton *loopPB;
@@ -79,8 +82,29 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(595, 638);
+        MainWindow->resize(600, 650);
         MainWindow->setCursor(QCursor(Qt::CursorShape::ArrowCursor));
+        MainWindow->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border:none;\n"
+"	background: transparent;\n"
+"}\n"
+"QPushButton {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	border-radius : 5 px;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	color: rgb(255, 255, 255);\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(51, 51, 51);\n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QPushButton:checked {\n"
+"	background-color: rgb(51, 51, 51);\n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout_5 = new QVBoxLayout(centralwidget);
@@ -106,6 +130,10 @@ public:
 
         searchPB = new QPushButton(searchWidget);
         searchPB->setObjectName("searchPB");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Icons/search.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        searchPB->setIcon(icon);
+        searchPB->setIconSize(QSize(20, 20));
 
         horizontalLayout->addWidget(searchPB);
 
@@ -146,6 +174,9 @@ public:
 
         addPlayListPB = new QPushButton(widget);
         addPlayListPB->setObjectName("addPlayListPB");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/Icons/plus.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        addPlayListPB->setIcon(icon1);
 
         horizontalLayout_2->addWidget(addPlayListPB);
 
@@ -157,10 +188,10 @@ public:
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 269, 421));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 271, 336));
         verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_7->setObjectName("verticalLayout_7");
-        verticalSpacer = new QSpacerItem(20, 406, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        verticalSpacer = new QSpacerItem(20, 416, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout_7->addItem(verticalSpacer);
 
@@ -170,6 +201,10 @@ public:
 
         deletePlayListPB = new QPushButton(widget);
         deletePlayListPB->setObjectName("deletePlayListPB");
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Icons/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        deletePlayListPB->setIcon(icon2);
+        deletePlayListPB->setIconSize(QSize(20, 20));
 
         verticalLayout_3->addWidget(deletePlayListPB);
 
@@ -189,6 +224,7 @@ public:
 
         pushButton = new QPushButton(widget_2);
         pushButton->setObjectName("pushButton");
+        pushButton->setIcon(icon1);
 
         horizontalLayout_3->addWidget(pushButton);
 
@@ -200,10 +236,10 @@ public:
         songsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 268, 421));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 271, 336));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setObjectName("verticalLayout_8");
-        verticalSpacer_2 = new QSpacerItem(20, 406, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        verticalSpacer_2 = new QSpacerItem(20, 416, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout_8->addItem(verticalSpacer_2);
 
@@ -213,6 +249,8 @@ public:
 
         deleteSongPB = new QPushButton(widget_2);
         deleteSongPB->setObjectName("deleteSongPB");
+        deleteSongPB->setIcon(icon2);
+        deleteSongPB->setIconSize(QSize(20, 20));
 
         verticalLayout_4->addWidget(deleteSongPB);
 
@@ -247,6 +285,12 @@ public:
 
         verticalLayout_6->addLayout(horizontalLayout_7);
 
+        horizontalSlider = new QSlider(widget_3);
+        horizontalSlider->setObjectName("horizontalSlider");
+        horizontalSlider->setOrientation(Qt::Orientation::Horizontal);
+
+        verticalLayout_6->addWidget(horizontalSlider);
+
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName("horizontalLayout_6");
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
@@ -255,26 +299,63 @@ public:
 
         loopPB = new QPushButton(widget_3);
         loopPB->setObjectName("loopPB");
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/Icons/loop.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        loopPB->setIcon(icon3);
+        loopPB->setIconSize(QSize(20, 20));
 
         horizontalLayout_6->addWidget(loopPB);
 
         prePB = new QPushButton(widget_3);
         prePB->setObjectName("prePB");
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/Icons/prev.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        prePB->setIcon(icon4);
+        prePB->setIconSize(QSize(20, 20));
 
         horizontalLayout_6->addWidget(prePB);
 
         StopPB = new QPushButton(widget_3);
         StopPB->setObjectName("StopPB");
+        StopPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	border-radius : 5 px;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	color: rgb(255, 255, 255);\n"
+"	height : 40 px;\n"
+"	padding-left:5px;\n"
+"	border-radius:5px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(51, 51, 51);\n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}"));
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/Icons/play-button-arrowhead.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon5.addFile(QString::fromUtf8(":/Icons/pause.png"), QSize(), QIcon::Mode::Normal, QIcon::State::On);
+        StopPB->setIcon(icon5);
+        StopPB->setIconSize(QSize(20, 20));
+        StopPB->setCheckable(true);
 
         horizontalLayout_6->addWidget(StopPB);
 
         nextPB = new QPushButton(widget_3);
         nextPB->setObjectName("nextPB");
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/Icons/next.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        nextPB->setIcon(icon6);
+        nextPB->setIconSize(QSize(20, 20));
 
         horizontalLayout_6->addWidget(nextPB);
 
         shufflePB = new QPushButton(widget_3);
         shufflePB->setObjectName("shufflePB");
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/Icons/shuffle.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        shufflePB->setIcon(icon7);
+        shufflePB->setIconSize(QSize(20, 20));
+        shufflePB->setCheckable(true);
 
         horizontalLayout_6->addWidget(shufflePB);
 
@@ -299,20 +380,20 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Music Player", nullptr));
         searchLE->setPlaceholderText(QCoreApplication::translate("MainWindow", "Search", nullptr));
-        searchPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        searchPB->setText(QString());
         searchBoxErrorLB->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "Play Lists", nullptr));
-        addPlayListPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        deletePlayListPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        addPlayListPB->setText(QCoreApplication::translate("MainWindow", "Add Play List", nullptr));
+        deletePlayListPB->setText(QCoreApplication::translate("MainWindow", "Delete PlayList", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Songs", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        deleteSongPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Add Music", nullptr));
+        deleteSongPB->setText(QCoreApplication::translate("MainWindow", "Delete Music", nullptr));
         songNameL->setText(QCoreApplication::translate("MainWindow", "song name", nullptr));
-        loopPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        prePB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        StopPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        nextPB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-        shufflePB->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
+        loopPB->setText(QString());
+        prePB->setText(QString());
+        StopPB->setText(QString());
+        nextPB->setText(QString());
+        shufflePB->setText(QString());
     } // retranslateUi
 
 };

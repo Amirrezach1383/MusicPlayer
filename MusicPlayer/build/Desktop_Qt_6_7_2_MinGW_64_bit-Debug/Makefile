@@ -289,12 +289,14 @@ Makefile: ../../MusicPlayer.pro C:/Qt/6.7.2/mingw_64/mkspecs/win32-g++/qmake.con
 		C:/Qt/6.7.2/mingw_64/mkspecs/features/yacc.prf \
 		C:/Qt/6.7.2/mingw_64/mkspecs/features/lex.prf \
 		../../MusicPlayer.pro \
+		C:/Qt/6.7.2/mingw_64/lib/Qt6Multimedia.prl \
 		C:/Qt/6.7.2/mingw_64/lib/Qt6Widgets.prl \
 		C:/Qt/6.7.2/mingw_64/lib/Qt6Gui.prl \
+		C:/Qt/6.7.2/mingw_64/lib/Qt6Network.prl \
 		C:/Qt/6.7.2/mingw_64/lib/Qt6Core.prl \
 		C:/Qt/6.7.2/mingw_64/lib/Qt6EntryPoint.prl \
 		C:/Qt/6.7.2/mingw_64/mkspecs/features/build_pass.prf \
-		../../Icons.qrc
+		../../pictures.qrc
 	$(QMAKE) -o Makefile ..\..\MusicPlayer.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 C:/Qt/6.7.2/mingw_64/mkspecs/features/spec_pre.prf:
 C:/Qt/6.7.2/mingw_64/mkspecs/features/device_config.prf:
@@ -515,12 +517,14 @@ C:/Qt/6.7.2/mingw_64/mkspecs/features/exceptions.prf:
 C:/Qt/6.7.2/mingw_64/mkspecs/features/yacc.prf:
 C:/Qt/6.7.2/mingw_64/mkspecs/features/lex.prf:
 ../../MusicPlayer.pro:
+C:/Qt/6.7.2/mingw_64/lib/Qt6Multimedia.prl:
 C:/Qt/6.7.2/mingw_64/lib/Qt6Widgets.prl:
 C:/Qt/6.7.2/mingw_64/lib/Qt6Gui.prl:
+C:/Qt/6.7.2/mingw_64/lib/Qt6Network.prl:
 C:/Qt/6.7.2/mingw_64/lib/Qt6Core.prl:
 C:/Qt/6.7.2/mingw_64/lib/Qt6EntryPoint.prl:
 C:/Qt/6.7.2/mingw_64/mkspecs/features/build_pass.prf:
-../../Icons.qrc:
+../../pictures.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\..\MusicPlayer.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 

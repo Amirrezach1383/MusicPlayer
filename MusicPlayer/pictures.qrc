@@ -8,5 +8,6 @@
         <file>Icons/prev.png</file>
         <file>Icons/search.png</file>
         <file>Icons/shuffle.png</file>
+        <file>Icons/delete.png</file>
     </qresource>
 </RCC>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>595</width>
-    <height>638</height>
+    <width>600</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="cursor">
@@ -15,6 +15,29 @@
   </property>
   <property name="windowTitle">
    <string>Music Player</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QPushButton {
+	border:none;
+	background: transparent;
+}
+QPushButton {
+	text-align : center;
+	background : transparent; 
+	border-radius : 5 px;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	color: rgb(255, 255, 255);
+	height : 40 px;
+	border-radius:5px;
+}
+QPushButton:hover {
+	background-color: rgb(51, 51, 51);
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QPushButton:checked {
+	background-color: rgb(51, 51, 51);
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -54,7 +77,17 @@
            <item>
             <widget class="QPushButton" name="searchPB">
              <property name="text">
-              <string>PushButton</string>
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="pictures.qrc">
+               <normaloff>:/Icons/search.png</normaloff>:/Icons/search.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>20</width>
+               <height>20</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -105,7 +138,11 @@
               <item>
                <widget class="QPushButton" name="addPlayListPB">
                 <property name="text">
-                 <string>PushButton</string>
+                 <string>Add Play List</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="pictures.qrc">
+                  <normaloff>:/Icons/plus.png</normaloff>:/Icons/plus.png</iconset>
                 </property>
                </widget>
               </item>
@@ -121,8 +158,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>269</width>
-                 <height>421</height>
+                 <width>271</width>
+                 <height>336</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -134,7 +171,7 @@
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>20</width>
-                    <height>406</height>
+                    <height>416</height>
                    </size>
                   </property>
                  </spacer>
@@ -146,7 +183,17 @@
             <item>
              <widget class="QPushButton" name="deletePlayListPB">
               <property name="text">
-               <string>PushButton</string>
+               <string>Delete PlayList</string>
+              </property>
+              <property name="icon">
+               <iconset resource="pictures.qrc">
+                <normaloff>:/Icons/delete.png</normaloff>:/Icons/delete.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -168,7 +215,11 @@
               <item>
                <widget class="QPushButton" name="pushButton">
                 <property name="text">
-                 <string>PushButton</string>
+                 <string>Add Music</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="pictures.qrc">
+                  <normaloff>:/Icons/plus.png</normaloff>:/Icons/plus.png</iconset>
                 </property>
                </widget>
               </item>
@@ -184,8 +235,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>268</width>
-                 <height>421</height>
+                 <width>271</width>
+                 <height>336</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -197,7 +248,7 @@
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>20</width>
-                    <height>406</height>
+                    <height>416</height>
                    </size>
                   </property>
                  </spacer>
@@ -209,7 +260,17 @@
             <item>
              <widget class="QPushButton" name="deleteSongPB">
               <property name="text">
-               <string>PushButton</string>
+               <string>Delete Music</string>
+              </property>
+              <property name="icon">
+               <iconset resource="pictures.qrc">
+                <normaloff>:/Icons/delete.png</normaloff>:/Icons/delete.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -262,6 +323,13 @@
         </layout>
        </item>
        <item>
+        <widget class="QSlider" name="horizontalSlider">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
          <item>
           <spacer name="horizontalSpacer_3">
@@ -279,35 +347,108 @@
          <item>
           <widget class="QPushButton" name="loopPB">
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pictures.qrc">
+             <normaloff>:/Icons/loop.png</normaloff>:/Icons/loop.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="prePB">
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pictures.qrc">
+             <normaloff>:/Icons/prev.png</normaloff>:/Icons/prev.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="StopPB">
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	text-align : center;
+	background : transparent; 
+	border-radius : 5 px;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	color: rgb(255, 255, 255);
+	height : 40 px;
+	padding-left:5px;
+	border-radius:5px;
+}
+QPushButton:hover {
+	background-color: rgb(51, 51, 51);
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}</string>
+           </property>
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pictures.qrc">
+             <normaloff>:/Icons/play-button-arrowhead.png</normaloff>
+             <normalon>:/Icons/pause.png</normalon>:/Icons/play-button-arrowhead.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="nextPB">
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pictures.qrc">
+             <normaloff>:/Icons/next.png</normaloff>:/Icons/next.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="shufflePB">
            <property name="text">
-            <string>PushButton</string>
+            <string/>
+           </property>
+           <property name="icon">
+            <iconset resource="pictures.qrc">
+             <normaloff>:/Icons/shuffle.png</normaloff>:/Icons/shuffle.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -332,6 +473,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="pictures.qrc"/>
+ </resources>
  <connections/>
 </ui>

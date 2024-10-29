@@ -19,5 +19,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    // LinkedList<LinkedList<>>
 };
 #endif // MUSICPLAYER_H
