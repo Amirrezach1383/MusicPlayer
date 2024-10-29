@@ -23,14 +23,14 @@ private slots :
     void playAndStopMusic ();
     void fillMusicField ();
     void addMusicPB ();
+    void makeAndSetMusicsWidget ();
+    void makeAndSetPlayListWidget ();
 
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     QVector<Node<Music>> playLists;
-    void makeAndSetMusicsWidget ();
-    void makeAndSetPlayListWidget ();
 
 
 private:

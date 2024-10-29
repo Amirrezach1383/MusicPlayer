@@ -112,10 +112,12 @@ release/qrc_pictures.cpp: ../../pictures.qrc \
 		../../Icons/delete.png \
 		../../Icons/loop.png \
 		../../Icons/plus.png \
+		../../Icons/music-notes.png \
 		../../Icons/search.png \
 		../../Icons/pause.png \
 		../../Icons/next.png \
 		../../Icons/prev.png \
+		../../Icons/list.png \
 		../../Icons/shuffle.png \
 		../../Icons/play-button-arrowhead.png
 	C:\Qt\6.7.2\mingw_64\bin\rcc.exe -name pictures --no-zstd ..\..\pictures.qrc -o release\qrc_pictures.cpp
@@ -344,6 +346,9 @@ release/moc_MusicPlayer.cpp: ../../MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		../../NewQFrame.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QFrame \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		release/moc_predefs.h \
 		C:/Qt/6.7.2/mingw_64/bin/moc.exe
 	C:\Qt\6.7.2\mingw_64\bin\moc.exe $(DEFINES) --include "E:/Code/4031/DataStracture/Music Player MiniProject/MusicPlayer/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -I"E:/Code/4031/DataStracture/Music Player MiniProject/MusicPlayer" -IC:/Qt/6.7.2/mingw_64/include -IC:/Qt/6.7.2/mingw_64/include/QtMultimedia -IC:/Qt/6.7.2/mingw_64/include/QtWidgets -IC:/Qt/6.7.2/mingw_64/include/QtGui -IC:/Qt/6.7.2/mingw_64/include/QtNetwork -IC:/Qt/6.7.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\MusicPlayer.h -o release\moc_MusicPlayer.cpp
@@ -778,6 +783,9 @@ release/MusicPlayer.o: ../../MusicPlayer.cpp ../../MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		../../NewQFrame.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QFrame \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		ui_MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/QIcon \
@@ -790,7 +798,6 @@ release/MusicPlayer.o: ../../MusicPlayer.cpp ../../MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLabel \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.7.2/mingw_64/include/QtGui/qtextdocument.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QLineEdit \
@@ -1028,6 +1035,9 @@ release/main.o: ../../main.cpp ../../MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qdialog.h \
 		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		../../NewQFrame.h \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QFrame \
+		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\..\main.cpp

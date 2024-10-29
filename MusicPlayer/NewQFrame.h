@@ -2,7 +2,7 @@
 #include <QFrame>
 class NewQFrame : public QFrame{
     Q_OBJECT
-public:3
+public:
     NewQFrame(QWidget* parent = nullptr) : QFrame(parent) {
         setStyleSheet(
             "QFrame {"
