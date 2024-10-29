@@ -55,7 +55,7 @@ public:
     QWidget *widget_2;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_3;
-    QLabel *label_2;
+    QLabel *labelmusicsSA
     QPushButton *pushButton;
     QScrollArea *songsSA;
     QWidget *scrollAreaWidgetContents_2;
@@ -240,9 +240,9 @@ public:
 
         verticalLayout_4->addLayout(horizontalLayout_3);
 
-        songsSA = new QScrollArea(widget_2);
-        songsSA->setObjectName("songsSA");
-        songsSA->setWidgetResizable(true);
+        musicsSA = new QScrollArea(widget_2);
+        musicsSA->setObjectName("songsSA");
+        musicsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
         scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 271, 331));
@@ -252,9 +252,9 @@ public:
 
         verticalLayout_8->addItem(verticalSpacer_2);
 
-        songsSA->setWidget(scrollAreaWidgetContents_2);
+        musicsSA->setWidget(scrollAreaWidgetContents_2);
 
-        verticalLayout_4->addWidget(songsSA);
+        verticalLayout_4->addWidget(musicsSA);
 
         deleteSongPB = new QPushButton(widget_2);
         deleteSongPB->setObjectName("deleteSongPB");

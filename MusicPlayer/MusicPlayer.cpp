@@ -37,6 +37,33 @@ void MainWindow::makeAndSetPlayListWidget() {
 }
 
 void MainWindow::makeAndSetMusicsWidget() {
+    // اون کارا که تو اون فیلمه میکردن رو انجام بده تا بشه آهنگ رو ادد کرد
+    QString title, artist;
+    QPushButton *icon = new QPushButton;
+    NewQFrame *frame = new NewQFrame;
+    icon->setIcon(QIcon(":/Icons/music-notes.png"));
+    icon->setIconSize(QSize(20, 20));
+    icon->setStyleSheet(
+        "QPushButton {"
+        "border:none;"
+        "background: transparent;"
+        "text-align : center;"
+        "}"
+        );
+    icon->setDisabled(true);
+
+
+
+    QHBoxLayout * hLayout = new QHBoxLayout;
+    QLabel *label = new QLabel;
+    label->setText(title + "\n" + artist);
+
+    hLayout->addWidget(icon, 0);
+    hLayout->addWidget(label, 1);
+
+    frame->setLayout(hLayout);
+
+    ui->musicsSA->setWidget(frame);
 
 }
 
@@ -46,5 +73,13 @@ void MainWindow::playAndStopMusic() {
     } else {
         mediaPlayer->play();
     }
+}
+
+void MainWindow::fillMusicField() {
+
+}
+
+void MainWindow::addMusicPB() {
+
 }
 

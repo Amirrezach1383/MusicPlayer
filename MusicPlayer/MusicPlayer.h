@@ -6,6 +6,7 @@
 #include <LinkedList.h>
 #include <Music.h>
 #include <QAudioOutput>
+#include <NewQFrame.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,6 +21,9 @@ class MainWindow : public QMainWindow
 private slots :
     void addPlayListPB ();
     void playAndStopMusic ();
+    void fillMusicField ();
+    void addMusicPB ();
+
 
 public:
     MainWindow(QWidget *parent = nullptr);
