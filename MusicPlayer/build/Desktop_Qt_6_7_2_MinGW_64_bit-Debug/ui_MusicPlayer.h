@@ -104,6 +104,15 @@ public:
 "QPushButton:checked {\n"
 "	background-color: rgb(51, 51, 51);\n"
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QLabel {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	border-radius : 5 px;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	color: rgb(255, 255, 255);\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
 "}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -188,7 +197,7 @@ public:
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 271, 336));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 271, 331));
         verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_7->setObjectName("verticalLayout_7");
         verticalSpacer = new QSpacerItem(20, 416, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
@@ -236,7 +245,7 @@ public:
         songsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 271, 336));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 271, 331));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setObjectName("verticalLayout_8");
         verticalSpacer_2 = new QSpacerItem(20, 416, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
@@ -287,11 +296,43 @@ public:
 
         horizontalSlider = new QSlider(widget_3);
         horizontalSlider->setObjectName("horizontalSlider");
+        horizontalSlider->setStyleSheet(QString::fromUtf8("QSlider {\n"
+"    background: #1C1C1C;\n"
+"    border: 1px solid #333;\n"
+"    height: 10px;\n"
+"}\n"
+"\n"
+"QSlider::groove:horizontal {\n"
+"    background: #333;\n"
+"    height: 4px;\n"
+"}\n"
+"\n"
+"QSlider::handle {\n"
+"    background: #555; /* Dark gray handle */\n"
+"    width: 24px; /* Increased width for circular shape */\n"
+"    height: 24px; /* Height matches width for a circle */\n"
+"    margin: -10px 0; /* Centering the handle on the track */\n"
+"    border-radius: 12px; /* Rounded handle for a circle */\n"
+"}\n"
+"\n"
+"QSlider::handle:hover {\n"
+"    background: #CCCCCC; /* Light gray on hover */\n"
+"}\n"
+"\n"
+"QSlider:disabled {\n"
+"    background: #2A2A2A;\n"
+"}\n"
+"\n"
+"QSlider::handle:disabled {\n"
+"    background: #777;\n"
+"}\n"
+""));
         horizontalSlider->setOrientation(Qt::Orientation::Horizontal);
 
         verticalLayout_6->addWidget(horizontalSlider);
 
         horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(15);
         horizontalLayout_6->setObjectName("horizontalLayout_6");
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
@@ -299,15 +340,18 @@ public:
 
         loopPB = new QPushButton(widget_3);
         loopPB->setObjectName("loopPB");
+        loopPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/Icons/loop.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         loopPB->setIcon(icon3);
         loopPB->setIconSize(QSize(20, 20));
+        loopPB->setCheckable(true);
 
         horizontalLayout_6->addWidget(loopPB);
 
         prePB = new QPushButton(widget_3);
         prePB->setObjectName("prePB");
+        prePB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/Icons/prev.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         prePB->setIcon(icon4);
@@ -317,6 +361,7 @@ public:
 
         StopPB = new QPushButton(widget_3);
         StopPB->setObjectName("StopPB");
+        StopPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         StopPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	text-align : center;\n"
 "	background : transparent; \n"
@@ -326,10 +371,6 @@ public:
 "	height : 40 px;\n"
 "	padding-left:5px;\n"
 "	border-radius:5px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(51, 51, 51);\n"
-"	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}"));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/Icons/play-button-arrowhead.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
@@ -342,6 +383,7 @@ public:
 
         nextPB = new QPushButton(widget_3);
         nextPB->setObjectName("nextPB");
+        nextPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/Icons/next.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         nextPB->setIcon(icon6);
@@ -351,6 +393,7 @@ public:
 
         shufflePB = new QPushButton(widget_3);
         shufflePB->setObjectName("shufflePB");
+        shufflePB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         QIcon icon7;
         icon7.addFile(QString::fromUtf8(":/Icons/shuffle.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         shufflePB->setIcon(icon7);

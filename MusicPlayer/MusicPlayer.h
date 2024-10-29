@@ -5,6 +5,7 @@
 #include <Qvector>
 #include <LinkedList.h>
 #include <Music.h>
+#include <QAudioOutput>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,6 +19,8 @@ class MainWindow : public QMainWindow
 
 private slots :
     void addPlayListPB ();
+    // void playAndStopMusic ();
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -26,6 +29,8 @@ public:
 
 
 private:
+    QMediaPlayer *m_player;
+    QAudioOutput *m;
     Ui::MainWindow *ui;
 
 };

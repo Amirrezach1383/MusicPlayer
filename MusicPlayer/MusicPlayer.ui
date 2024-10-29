@@ -37,6 +37,15 @@ QPushButton:hover {
 QPushButton:checked {
 	background-color: rgb(51, 51, 51);
 	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QLabel {
+	text-align : center;
+	background : transparent; 
+	border-radius : 5 px;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	color: rgb(255, 255, 255);
+	height : 40 px;
+	border-radius:5px;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -159,7 +168,7 @@ QPushButton:checked {
                  <x>0</x>
                  <y>0</y>
                  <width>271</width>
-                 <height>336</height>
+                 <height>331</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -236,7 +245,7 @@ QPushButton:checked {
                  <x>0</x>
                  <y>0</y>
                  <width>271</width>
-                 <height>336</height>
+                 <height>331</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -324,6 +333,39 @@ QPushButton:checked {
        </item>
        <item>
         <widget class="QSlider" name="horizontalSlider">
+         <property name="styleSheet">
+          <string notr="true">QSlider {
+    background: #1C1C1C;
+    border: 1px solid #333;
+    height: 10px;
+}
+
+QSlider::groove:horizontal {
+    background: #333;
+    height: 4px;
+}
+
+QSlider::handle {
+    background: #555; /* Dark gray handle */
+    width: 24px; /* Increased width for circular shape */
+    height: 24px; /* Height matches width for a circle */
+    margin: -10px 0; /* Centering the handle on the track */
+    border-radius: 12px; /* Rounded handle for a circle */
+}
+
+QSlider::handle:hover {
+    background: #CCCCCC; /* Light gray on hover */
+}
+
+QSlider:disabled {
+    background: #2A2A2A;
+}
+
+QSlider::handle:disabled {
+    background: #777;
+}
+</string>
+         </property>
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
          </property>
@@ -331,6 +373,9 @@ QPushButton:checked {
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <property name="spacing">
+          <number>15</number>
+         </property>
          <item>
           <spacer name="horizontalSpacer_3">
            <property name="orientation">
@@ -346,6 +391,9 @@ QPushButton:checked {
          </item>
          <item>
           <widget class="QPushButton" name="loopPB">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -366,6 +414,9 @@ QPushButton:checked {
          </item>
          <item>
           <widget class="QPushButton" name="prePB">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -383,6 +434,9 @@ QPushButton:checked {
          </item>
          <item>
           <widget class="QPushButton" name="StopPB">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
 	text-align : center;
@@ -393,10 +447,6 @@ QPushButton:checked {
 	height : 40 px;
 	padding-left:5px;
 	border-radius:5px;
-}
-QPushButton:hover {
-	background-color: rgb(51, 51, 51);
-	font: 700 9pt &quot;Playwrite DE Grund&quot;;
 }</string>
            </property>
            <property name="text">
@@ -420,6 +470,9 @@ QPushButton:hover {
          </item>
          <item>
           <widget class="QPushButton" name="nextPB">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -437,6 +490,9 @@ QPushButton:hover {
          </item>
          <item>
           <widget class="QPushButton" name="shufflePB">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
            <property name="text">
             <string/>
            </property>
