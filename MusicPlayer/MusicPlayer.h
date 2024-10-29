@@ -19,18 +19,19 @@ class MainWindow : public QMainWindow
 
 private slots :
     void addPlayListPB ();
-    // void playAndStopMusic ();
+    void playAndStopMusic ();
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
     QVector<Node<Music>> playLists;
+    void makeAndSetMusicsWidget ();
+    void makeAndSetPlayListWidget ();
 
 
 private:
-    QMediaPlayer *m_player;
-    QAudioOutput *m;
+    QMediaPlayer *mediaPlayer;
+    QAudioOutput *audioOutPut;
     Ui::MainWindow *ui;
 
 };

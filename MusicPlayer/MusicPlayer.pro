@@ -16,7 +16,8 @@ SOURCES += \
 HEADERS += \
     LinkedList.h \
     Music.h \
-    MusicPlayer.h
+    MusicPlayer.h \
+    NewQFrame.h
 
 FORMS += \
     MusicPlayer.ui

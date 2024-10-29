@@ -5,26 +5,23 @@
 #include <QFileDialog>
 
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    m_player = new QMediaPlayer(this);
-    m = new QAudioOutput;
+    mediaPlayer = new QMediaPlayer(this);
+    audioOutPut = new QAudioOutput;
+    audioOutPut->setVolume(1);
+    mediaPlayer->setAudioOutput(audioOutPut);
 
-    QString fileName = QFileDialog::getOpenFileName (this, tr("Select Audio File"), "", tr("MP3 File (*.MP3)"));
-    m_player->setSource(QUrl::fromLocalFile(fileName));
-    m_player->setAudioOutput(m);
-    m->setVolume(1);
+    connect(mediaPlayer, &QMediaPlayer::durationChanged, ui->horizontalSlider, &QSlider::setMaximum);
+    connect(mediaPlayer, &QMediaPlayer::positionChanged, ui->horizontalSlider, &QSlider::setValue);
+    connect(ui->horizontalSlider, &QSlider::sliderMoved, mediaPlayer, &QMediaPlayer::setPosition);
 
-    QFileInfo file(fileName);
 
-    connect(ui->StopPB, SIGNAL(clicked(bool)), this, SLOT(playAndStopMusic()));
 
-    ui->songNameL->setText(file.fileName());
-
-    m_player->play();
 }
 
 void MainWindow::addPlayListPB () {
@@ -35,11 +32,19 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-// void MainWindow::playAndStopMusic() {
-//     if (m_player->playbackState() == QMediaPlayer::PlayingState) {
-//         m_player->pause();
-//     } else {
-//         m_player->play();
-//     }
-// }
+void MainWindow::makeAndSetPlayListWidget() {
+
+}
+
+void MainWindow::makeAndSetMusicsWidget() {
+
+}
+
+void MainWindow::playAndStopMusic() {
+    if (mediaPlayer->isPlaying()) {
+        mediaPlayer->pause();
+    } else {
+        mediaPlayer->play();
+    }
+}
 
