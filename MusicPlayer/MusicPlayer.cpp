@@ -10,6 +10,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 }
 
+void MainWindow::addPlayListPB () {
+
+}
+
 MainWindow::~MainWindow() {
     delete ui;
 }

@@ -15,6 +15,7 @@ SOURCES += \
 
 HEADERS += \
     LinkedList.h \
+    Music.h \
     MusicPlayer.h
 
 FORMS += \
