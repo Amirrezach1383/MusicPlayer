@@ -9,5 +9,7 @@
         <file>Icons/search.png</file>
         <file>Icons/shuffle.png</file>
         <file>Icons/delete.png</file>
+        <file>Icons/list.png</file>
+        <file>Icons/music-notes.png</file>
     </qresource>
 </RCC>
