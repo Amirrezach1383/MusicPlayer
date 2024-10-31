@@ -14,7 +14,7 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
-    LinkedList.h \
+    LinkList.h \
     Music.h \
     MusicPlayer.h \
     NewQFrame.h

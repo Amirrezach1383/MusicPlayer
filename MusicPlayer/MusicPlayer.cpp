@@ -33,24 +33,19 @@ void MainWindow::unCheckedOtherPlayListsFrame(NewQFrame *checkedFrame) {
 }
 
 void MainWindow::setPlayListsMusic(NewQFrame* frame){
+    cleanMusicField();
     QHBoxLayout * hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
 
     QLayoutItem *item = hLayout->itemAt(1);
     QLabel *playListName = qobject_cast<QLabel*>(item->widget());
+    LinkList<Music> checkedPlayList = playLists[playListName->text()];
 
-    QString name = playListName->text();
-    QString idx = name[name.length() - 1];
-    int idxI = 0;
-    idx.number(idxI);
-
-    cleanMusicField();
-
-
-    Node<Music> *tmp = playLists[idxI - 1].getHeader();
-    while(tmp != playLists[idxI - 1].getTrailer()){
+    auto tmp = checkedPlayList.getHead();
+    while(tmp != nullptr) {
         makeAndSetMusicsWidget(tmp->getData());
         tmp = tmp->getNext();
     }
+
 
 }
 
@@ -72,9 +67,8 @@ void MainWindow::cleanMusicField() {
 
 void MainWindow::makeAndSetPlayListWidget() {
     QVBoxLayout *frameLayout =  qobject_cast<QVBoxLayout*>(ui->frame_2->layout());
-    LinkedList<Music> newPlayList;
+    LinkList<Music> newPlayList;
 
-    playLists.push_back(newPlayList);
 
     QPushButton *icon = new QPushButton;
     NewQFrame *frame = new NewQFrame;
@@ -89,12 +83,12 @@ void MainWindow::makeAndSetPlayListWidget() {
         );
     icon->setDisabled(true);
 
-
-
     QHBoxLayout * hLayout = new QHBoxLayout;
     QLabel *label = new QLabel;
 
     label->setText(tr("Play List %1").arg(frameLayout->count()));
+
+    playLists[label->text()] = newPlayList;
 
     hLayout->addWidget(icon, 0);
     hLayout->addWidget(label, 1);
@@ -103,7 +97,7 @@ void MainWindow::makeAndSetPlayListWidget() {
 
     frameLayout->insertWidget(frameLayout->count() - 1, frame);
 
-    playListMap.insert(frame, newPlayList);
+    playListMap.insert(frame, newPlayList.getHead());
 
     connect(frame, SIGNAL(clicked()), this, SLOT(playListFrameClicked()));
 }
@@ -112,7 +106,7 @@ void MainWindow::playListFrameClicked() {
     NewQFrame *frame = qobject_cast<NewQFrame*>(sender());
     unCheckedOtherPlayListsFrame(frame);
 
-
+    setPlayListsMusic(frame);
 }
 
 void MainWindow::makeAndSetMusicsWidget(Music music) {
@@ -154,10 +148,6 @@ void MainWindow::playAndStopMusic() {
     }
 }
 
-void MainWindow::fillMusicField() {
-
-}
-
 void MainWindow::addMusicPB() {
     QString fileName = QFileDialog::getOpenFileName(this, "Select Media File", "", "Audio Files (*.mp3)");
     Music music;
@@ -168,6 +158,6 @@ void MainWindow::addMusicPB() {
 
     QFileInfo file(fileName);
     music.setTitle(file.fileName());
-
+    makeAndSetMusicsWidget(music);
 }
 

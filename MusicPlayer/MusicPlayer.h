@@ -2,8 +2,6 @@
 #define MUSICPLAYER_H
 
 #include <QMainWindow>
-#include <Qvector>
-#include <LinkedList.h>
 #include <Music.h>
 #include <QAudioOutput>
 #include <NewQFrame.h>
@@ -12,6 +10,7 @@
 #include <QtMultimedia/QMediaPlayer>
 #include <QFileDialog>
 #include <QMediaMetaData>
+#include <LinkList.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -27,7 +26,6 @@ class MainWindow : public QMainWindow
 
 private slots :
     void playAndStopMusic ();
-    void fillMusicField ();
     void addMusicPB ();
     void makeAndSetMusicsWidget (Music);
     void makeAndSetPlayListWidget ();
@@ -36,7 +34,7 @@ private slots :
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QVector<LinkedList<Music>> playLists;
+    std::map<QString, LinkList<Music>> playLists;
 
     void unCheckedOtherPlayListsFrame(NewQFrame*);
     void setPlayListsMusic(NewQFrame*);
@@ -49,7 +47,7 @@ private:
     QMediaPlayer *mediaPlayer;
     QAudioOutput *audioOutPut;
     Ui::MainWindow *ui;
-    QHash<NewQFrame*, LinkedList<Music>> playListMap ;
+    QHash<NewQFrame*, Node<Music>*> playListMap ;
 
 };
 #endif // MUSICPLAYER_H
