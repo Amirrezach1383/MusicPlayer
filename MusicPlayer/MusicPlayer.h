@@ -26,28 +26,30 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private slots :
-    void addPlayListPB ();
     void playAndStopMusic ();
     void fillMusicField ();
     void addMusicPB ();
-    void makeAndSetMusicsWidget ();
+    void makeAndSetMusicsWidget (Music);
     void makeAndSetPlayListWidget ();
     void playListFrameClicked ();
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QVector<Node<Music>> playLists;
+    QVector<LinkedList<Music>> playLists;
 
     void unCheckedOtherPlayListsFrame(NewQFrame*);
+    void setPlayListsMusic(NewQFrame*);
+    void cleanMusicField();
+
+
 
 
 private:
     QMediaPlayer *mediaPlayer;
     QAudioOutput *audioOutPut;
-    QButtonGroup *playListBG;
     Ui::MainWindow *ui;
-    QHash<NewQFrame*, Node<Music>> playListMap ;
+    QHash<NewQFrame*, LinkedList<Music>> playListMap ;
 
 };
 #endif // MUSICPLAYER_H

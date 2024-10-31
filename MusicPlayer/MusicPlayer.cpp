@@ -6,8 +6,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
-    playListBG = new QButtonGroup;
-
     mediaPlayer = new QMediaPlayer(this);
     audioOutPut = new QAudioOutput;
     audioOutPut->setVolume(1);
@@ -17,14 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(mediaPlayer, &QMediaPlayer::positionChanged, ui->horizontalSlider, &QSlider::setValue);
     connect(ui->horizontalSlider, &QSlider::sliderMoved, mediaPlayer, &QMediaPlayer::setPosition);
 
-    connect(ui->addMusicPB, SIGNAL(clicked(bool)), this, SLOT(makeAndSetMusicsWidget()));
+    connect(ui->addMusicPB, SIGNAL(clicked(bool)), this, SLOT(addMusicPB()));
     connect(ui->addPlayListPB, SIGNAL(clicked(bool)), this, SLOT(makeAndSetPlayListWidget()));
 
     makeAndSetPlayListWidget();
-}
-
-void MainWindow::addPlayListPB () {
-
 }
 
 MainWindow::~MainWindow() {
@@ -38,11 +32,47 @@ void MainWindow::unCheckedOtherPlayListsFrame(NewQFrame *checkedFrame) {
     }
 }
 
+void MainWindow::setPlayListsMusic(NewQFrame* frame){
+    QHBoxLayout * hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
+
+    QLayoutItem *item = hLayout->itemAt(1);
+    QLabel *playListName = qobject_cast<QLabel*>(item->widget());
+
+    QString name = playListName->text();
+    QString idx = name[name.length() - 1];
+    int idxI = 0;
+    idx.number(idxI);
+
+    cleanMusicField();
+
+
+    Node<Music> *tmp = playLists[idxI - 1].getHeader();
+    while(tmp != playLists[idxI - 1].getTrailer()){
+        makeAndSetMusicsWidget(tmp->getData());
+        tmp = tmp->getNext();
+    }
+
+}
+
+void MainWindow::cleanMusicField() {
+    QVBoxLayout * vLayout = qobject_cast<QVBoxLayout*>(ui->musicFrame->layout());
+    for(int i = 0; i < vLayout->count() - 1; i++) {
+        QLayoutItem *item = vLayout->itemAt(i);
+        NewQFrame *tmpFrame = qobject_cast<NewQFrame*>(item->widget());
+        QHBoxLayout *tmpHLayout = qobject_cast<QHBoxLayout*>(tmpFrame->layout());
+        while(tmpHLayout->count() != 0) {
+            delete tmpHLayout->itemAt(0);
+        }
+        delete tmpFrame;
+    }
+
+}
+
 
 
 void MainWindow::makeAndSetPlayListWidget() {
     QVBoxLayout *frameLayout =  qobject_cast<QVBoxLayout*>(ui->frame_2->layout());
-    Node<Music> newPlayList;
+    LinkedList<Music> newPlayList;
 
     playLists.push_back(newPlayList);
 
@@ -85,20 +115,10 @@ void MainWindow::playListFrameClicked() {
 
 }
 
-void MainWindow::makeAndSetMusicsWidget() {
-    QString fileName = QFileDialog::getOpenFileName(this, "Select Media File", "", "Audio Files (*.mp3)");
-    Music music;
-    if(!fileName.isEmpty()) {
-        music.setAddress(fileName);
-    } else
-        return;
-
-    QFileInfo file(fileName);
-    music.setTitle(file.fileName());
-
+void MainWindow::makeAndSetMusicsWidget(Music music) {
     QString title = music.getTitle();
 
-    QVBoxLayout *frameLayout =  qobject_cast<QVBoxLayout*>(ui->frame->layout());
+    QVBoxLayout *frameLayout =  qobject_cast<QVBoxLayout*>(ui->musicFrame->layout());
 
     QPushButton *icon = new QPushButton;
     NewQFrame *frame = new NewQFrame;
@@ -139,6 +159,15 @@ void MainWindow::fillMusicField() {
 }
 
 void MainWindow::addMusicPB() {
+    QString fileName = QFileDialog::getOpenFileName(this, "Select Media File", "", "Audio Files (*.mp3)");
+    Music music;
+    if(!fileName.isEmpty()) {
+        music.setAddress(fileName);
+    } else
+        return;
+
+    QFileInfo file(fileName);
+    music.setTitle(file.fileName());
 
 }
 

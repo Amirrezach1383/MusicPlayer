@@ -353,6 +353,8 @@ debug/moc_MusicPlayer.cpp: ../../MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QButtonGroup \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qbuttongroup.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QHash \
+		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/QMediaMetaData \
+		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/qmediametadata.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.2/mingw_64/bin/moc.exe
 	C:\Qt\6.7.2\mingw_64\bin\moc.exe $(DEFINES) --include "E:/Code/4031/DataStracture/Music Player MiniProject/MusicPlayer/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/6.7.2/mingw_64/mkspecs/win32-g++ -I"E:/Code/4031/DataStracture/Music Player MiniProject/MusicPlayer" -IC:/Qt/6.7.2/mingw_64/include -IC:/Qt/6.7.2/mingw_64/include/QtMultimedia -IC:/Qt/6.7.2/mingw_64/include/QtWidgets -IC:/Qt/6.7.2/mingw_64/include/QtGui -IC:/Qt/6.7.2/mingw_64/include/QtNetwork -IC:/Qt/6.7.2/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\MusicPlayer.h -o debug\moc_MusicPlayer.cpp
@@ -795,9 +797,9 @@ debug/MusicPlayer.o: ../../MusicPlayer.cpp ../../MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QButtonGroup \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qbuttongroup.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QHash \
-		ui_MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/QMediaMetaData \
-		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/qmediametadata.h
+		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/qmediametadata.h \
+		ui_MusicPlayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\MusicPlayer.o ..\..\MusicPlayer.cpp
 
 debug/main.o: ../../main.cpp ../../MusicPlayer.h \
@@ -1022,6 +1024,8 @@ debug/main.o: ../../main.cpp ../../MusicPlayer.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QButtonGroup \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qbuttongroup.h \
 		C:/Qt/6.7.2/mingw_64/include/QtCore/QHash \
+		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/QMediaMetaData \
+		C:/Qt/6.7.2/mingw_64/include/QtMultimedia/qmediametadata.h \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.7.2/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp

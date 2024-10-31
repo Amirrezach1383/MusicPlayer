@@ -19,6 +19,17 @@ public:
     Node<T> *getPerv() {
         return prev;
     }
+
+    void setPrev (Node<T> *newPrev) {
+        prev = newPrev;
+    }
+    void setNext (Node<T> *newNext) {
+        next = newNext;
+    }
+    void setData (T newData) {
+        data = newData;
+    }
+
 };
 
 template <class T>
@@ -32,23 +43,23 @@ private:
 public:
     LinkedList <T>() {
         size = 0;
-        header.next = &trailer;
-        header.prev = nullptr;
-        trailer.next = nullptr;
+        header.setNext(&trailer);
+        header.setPrev(nullptr);
+        trailer.setNext(nullptr);
         tail = nullptr;
-        trailer.prev = &header;
+        trailer.setPrev(&header);
     }
 
-    ~LinkedList <T>() {
-        Node <T>*tmp = header.next;
-        while (tmp != &trailer) {
-            Node <T>*tmp1 = tmp->next;
-            delete tmp;
-            tmp = tmp1;
-        }
-        header.next = &trailer;
-        trailer.prev = &header;
-    }
+    // ~LinkedList <T>() {
+    //     Node <T>*tmp = header.getNext();
+    //     while (tmp != &trailer) {
+    //         Node <T>*tmp1 = tmp->getNext();
+    //         delete tmp;
+    //         tmp = tmp1;
+    //     }
+    //     header.setNext(&trailer);
+    //     trailer.setPrev(&header);
+    // }
 
     Node<T> *getHeader() {
         return &header;
@@ -69,13 +80,13 @@ public:
         }
 
         Node<T> *newNode = new Node<T>;
-        newNode->data = data;
+        newNode->setData(data);
 
 
-        tail->next = newNode;
-        newNode->prev = tail;
-        newNode->next = &trailer;
-        trailer.prev = newNode;
+        tail->setNext(newNode);
+        newNode->setPrev(tail);
+        newNode->setNext(&trailer);
+        trailer.setPrev(newNode);
         tail = newNode;
         size++;
 
@@ -83,17 +94,17 @@ public:
 
     void pushFront(T data) {
         Node<T> *newNode = new Node<T>;
-        newNode->data = data;
+        newNode->setData(data);
 
         if (size == 0) {
             tail = newNode;
-            newNode->next = &trailer;
-            trailer.prev = newNode;
+            newNode->setNext(&trailer);
+            trailer.setPrev(newNode);
         }
-        newNode->next = header.next;
-        header.next->prev = newNode;
-        newNode->prev = &header;
-        header.next = newNode;
+        newNode->setNext(header.getNext());
+        header.getNext()->setPrev(newNode);
+        newNode->setPrev(&header);
+        header.setNext(newNode);
         size++;
 
     }

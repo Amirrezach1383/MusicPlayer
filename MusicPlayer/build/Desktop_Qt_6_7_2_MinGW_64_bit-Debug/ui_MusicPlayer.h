@@ -63,7 +63,7 @@ public:
     QScrollArea *musicsSA;
     QWidget *scrollAreaWidgetContents_2;
     QVBoxLayout *verticalLayout_8;
-    QFrame *frame;
+    QFrame *musicFrame;
     QVBoxLayout *verticalLayout_9;
     QSpacerItem *verticalSpacer_2;
     QPushButton *deleteSongPB;
@@ -275,18 +275,18 @@ public:
         scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 376, 524));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setObjectName("verticalLayout_8");
-        frame = new QFrame(scrollAreaWidgetContents_2);
-        frame->setObjectName("frame");
-        frame->setFrameShape(QFrame::Shape::StyledPanel);
-        frame->setFrameShadow(QFrame::Shadow::Raised);
-        verticalLayout_9 = new QVBoxLayout(frame);
+        musicFrame = new QFrame(scrollAreaWidgetContents_2);
+        musicFrame->setObjectName("musicFrame");
+        musicFrame->setFrameShape(QFrame::Shape::StyledPanel);
+        musicFrame->setFrameShadow(QFrame::Shadow::Raised);
+        verticalLayout_9 = new QVBoxLayout(musicFrame);
         verticalLayout_9->setObjectName("verticalLayout_9");
         verticalSpacer_2 = new QSpacerItem(18, 495, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout_9->addItem(verticalSpacer_2);
 
 
-        verticalLayout_8->addWidget(frame);
+        verticalLayout_8->addWidget(musicFrame);
 
         musicsSA->setWidget(scrollAreaWidgetContents_2);
 
