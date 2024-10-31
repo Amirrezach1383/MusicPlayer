@@ -30,6 +30,7 @@ private slots :
     void makeAndSetMusicsWidget (Music);
     void makeAndSetPlayListWidget ();
     void playListFrameClicked ();
+    void playMusic();
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -40,6 +41,9 @@ public:
     void setPlayListsMusic(NewQFrame*);
     void cleanMusicField();
 
+    bool playListChecked();
+
+
 
 
 
@@ -48,6 +52,7 @@ private:
     QAudioOutput *audioOutPut;
     Ui::MainWindow *ui;
     QHash<NewQFrame*, Node<Music>*> playListMap ;
+    QHash<NewQFrame*, Music> musicMap;
 
 };
 #endif // MUSICPLAYER_H

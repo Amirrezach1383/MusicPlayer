@@ -54,6 +54,12 @@ void MainWindow::cleanMusicField() {
     for(int i = 0; i < vLayout->count() - 1; i++) {
         QLayoutItem *item = vLayout->itemAt(i);
         NewQFrame *tmpFrame = qobject_cast<NewQFrame*>(item->widget());
+
+        for(auto it = musicMap.begin(); it != musicMap.end(); it++) {
+            if(it.key() == tmpFrame)
+                musicMap.erase(it);
+        }
+
         QHBoxLayout *tmpHLayout = qobject_cast<QHBoxLayout*>(tmpFrame->layout());
         while(tmpHLayout->count() != 0) {
             delete tmpHLayout->itemAt(0);
@@ -61,6 +67,15 @@ void MainWindow::cleanMusicField() {
         delete tmpFrame;
     }
 
+}
+
+bool MainWindow::playListChecked(){
+    for(auto it = playListMap.begin(); it != playListMap.end(); ++it) {
+        if(it.key()->isChecked()) {
+            return true;
+        }
+    }
+    return false;
 }
 
 
@@ -109,6 +124,22 @@ void MainWindow::playListFrameClicked() {
     setPlayListsMusic(frame);
 }
 
+void MainWindow::playMusic() {
+    NewQFrame *frame = qobject_cast<NewQFrame*>(sender());
+    Music music;
+
+    for(auto it = musicMap.begin(); it != musicMap.end(); ++it) {
+        if(it.key() == frame) {
+            music = it.value();
+            break;
+        }
+    }
+    QString musicAddress = music.getAddress();
+    mediaPlayer->setSource(QUrl::fromLocalFile(music.getAddress()));
+    mediaPlayer->play();
+    ui->StopPB->setChecked(true);
+}
+
 void MainWindow::makeAndSetMusicsWidget(Music music) {
     QString title = music.getTitle();
 
@@ -136,9 +167,11 @@ void MainWindow::makeAndSetMusicsWidget(Music music) {
     frame->setLayout(hLayout);
 
     frameLayout->insertWidget(frameLayout->count() - 1, frame);
+    musicMap.insert(frame, music);
+
+    connect (frame, SIGNAL(clicked()), this, SLOT(playMusic()));
 
 }
-
 
 void MainWindow::playAndStopMusic() {
     if (mediaPlayer->isPlaying()) {
@@ -159,5 +192,6 @@ void MainWindow::addMusicPB() {
     QFileInfo file(fileName);
     music.setTitle(file.fileName());
     makeAndSetMusicsWidget(music);
+
 }
 
