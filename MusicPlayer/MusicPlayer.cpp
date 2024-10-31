@@ -1,15 +1,12 @@
 #include "MusicPlayer.h"
-#include "qaudiooutput.h"
 #include "ui_MusicPlayer.h"
-#include <QtMultimedia/QMediaPlayer>
-#include <QFileDialog>
-#include <QMediaMetaData>
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow) {
     ui->setupUi(this);
+
+    playListBG = new QButtonGroup;
 
     mediaPlayer = new QMediaPlayer(this);
     audioOutPut = new QAudioOutput;
@@ -21,8 +18,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->horizontalSlider, &QSlider::sliderMoved, mediaPlayer, &QMediaPlayer::setPosition);
 
     connect(ui->addMusicPB, SIGNAL(clicked(bool)), this, SLOT(makeAndSetMusicsWidget()));
+    connect(ui->addPlayListPB, SIGNAL(clicked(bool)), this, SLOT(makeAndSetPlayListWidget()));
 
-
+    makeAndSetPlayListWidget();
 }
 
 void MainWindow::addPlayListPB () {
@@ -33,7 +31,57 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
+void MainWindow::unCheckedOtherPlayListsFrame(NewQFrame *checkedFrame) {
+    for(auto it = playListMap.begin(); it != playListMap.end(); it ++) {
+        if(it.key() == checkedFrame) continue;
+        else it.key()->setChecked(false);
+    }
+}
+
+
+
 void MainWindow::makeAndSetPlayListWidget() {
+    QVBoxLayout *frameLayout =  qobject_cast<QVBoxLayout*>(ui->frame_2->layout());
+    Node<Music> newPlayList;
+
+    playLists.push_back(newPlayList);
+
+    QPushButton *icon = new QPushButton;
+    NewQFrame *frame = new NewQFrame;
+    icon->setIcon(QIcon(":/Icons/list.png"));
+    icon->setIconSize(QSize(20, 20));
+    icon->setStyleSheet(
+        "QPushButton {"
+        "border:none;"
+        "background: transparent;"
+        "text-align : center;"
+        "}"
+        );
+    icon->setDisabled(true);
+
+
+
+    QHBoxLayout * hLayout = new QHBoxLayout;
+    QLabel *label = new QLabel;
+
+    label->setText(tr("Play List %1").arg(frameLayout->count()));
+
+    hLayout->addWidget(icon, 0);
+    hLayout->addWidget(label, 1);
+
+    frame->setLayout(hLayout);
+
+    frameLayout->insertWidget(frameLayout->count() - 1, frame);
+
+    playListMap.insert(frame, newPlayList);
+
+    connect(frame, SIGNAL(clicked()), this, SLOT(playListFrameClicked()));
+}
+
+void MainWindow::playListFrameClicked() {
+    NewQFrame *frame = qobject_cast<NewQFrame*>(sender());
+    unCheckedOtherPlayListsFrame(frame);
+
 
 }
 
@@ -59,13 +107,10 @@ void MainWindow::makeAndSetMusicsWidget() {
     icon->setStyleSheet(
         "QPushButton {"
         "border:none;"
-        "background: transparent;"
         "text-align : center;"
         "}"
         );
     icon->setDisabled(true);
-
-
 
     QHBoxLayout * hLayout = new QHBoxLayout;
     QLabel *label = new QLabel;

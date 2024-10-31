@@ -91,7 +91,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(793, 701);
+        MainWindow->resize(810, 843);
         MainWindow->setCursor(QCursor(Qt::CursorShape::ArrowCursor));
         MainWindow->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "	border:none;\n"
@@ -102,7 +102,7 @@ public:
 "	background : transparent; \n"
 "	border-radius : 5 px;\n"
 "	font: 9pt \"Playwrite DE Grund\";\n"
-"	color: rgb(255, 255, 255);\n"
+"/*	color: rgb(255, 255, 255);*/\n"
 "	height : 40 px;\n"
 "	border-radius:5px;\n"
 "}\n"
@@ -204,19 +204,21 @@ public:
 
         playListsSongsSA = new QScrollArea(widget);
         playListsSongsSA->setObjectName("playListsSongsSA");
+        playListsSongsSA->setStyleSheet(QString::fromUtf8(""));
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 368, 382));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 376, 524));
         verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_7->setObjectName("verticalLayout_7");
         frame_2 = new QFrame(scrollAreaWidgetContents);
         frame_2->setObjectName("frame_2");
+        frame_2->setStyleSheet(QString::fromUtf8(""));
         frame_2->setFrameShape(QFrame::Shape::StyledPanel);
         frame_2->setFrameShadow(QFrame::Shadow::Raised);
         verticalLayout_10 = new QVBoxLayout(frame_2);
         verticalLayout_10->setObjectName("verticalLayout_10");
-        verticalSpacer = new QSpacerItem(17, 353, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        verticalSpacer = new QSpacerItem(17, 495, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout_10->addItem(verticalSpacer);
 
@@ -262,10 +264,15 @@ public:
 
         musicsSA = new QScrollArea(widget_2);
         musicsSA->setObjectName("musicsSA");
+        musicsSA->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"        border:none;\n"
+"        background: transparent;\n"
+"        text-align : center;\n"
+"        }"));
         musicsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 367, 382));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 376, 524));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setObjectName("verticalLayout_8");
         frame = new QFrame(scrollAreaWidgetContents_2);
@@ -274,7 +281,7 @@ public:
         frame->setFrameShadow(QFrame::Shadow::Raised);
         verticalLayout_9 = new QVBoxLayout(frame);
         verticalLayout_9->setObjectName("verticalLayout_9");
-        verticalSpacer_2 = new QSpacerItem(18, 353, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
+        verticalSpacer_2 = new QSpacerItem(18, 495, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
 
         verticalLayout_9->addItem(verticalSpacer_2);
 
