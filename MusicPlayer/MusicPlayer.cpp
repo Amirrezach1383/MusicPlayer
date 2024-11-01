@@ -1,6 +1,5 @@
 #include "MusicPlayer.h"
 #include "ui_MusicPlayer.h"
-#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->nextPB, SIGNAL(clicked(bool)), this, SLOT(nextMusic()));
     connect(ui->prevPB, SIGNAL(clicked(bool)), this, SLOT(prevMusic()));
+
+    connect(ui->deleteMusicPB, SIGNAL(clicked(bool)), this, SLOT(deleteMusicPBClicked()));
 
     makeAndSetPlayListWidget();
 }
@@ -227,11 +228,61 @@ void MainWindow::prevMusic() {
 }
 
 void MainWindow::deleteMusicPBClicked() {
+    NewQMessageBox msgBox;
+    QString songName;
+    NewQFrame * frame = findCheckedPlayListFrame();
+    QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
+    QLayoutItem *item = hLayout->itemAt(1);
+    QLabel *playListName = qobject_cast<QLabel*>(item->widget());
 
+    LinkList<Music> checkedPlayList = playLists[playListName->text()];
+
+    Node<Music>* tmp = checkedPlayList.getHead();
+    while(tmp != nullptr) {
+        msgBox.addItem(tmp->getData().getTitle());
+        tmp = tmp->getNext();
+    }
+
+    Node<Music> * deleteMusic;
+    msgBox.setWindowTitle("Write Music Name You Want To Delete : ");
+    if(msgBox.exec() == QDialog::Accepted) {
+        songName = msgBox.getSelectedItem();
+        deleteMusic = findMusic(songName, checkedPlayList);
+
+        NewQFrame* tmpFrame;
+        for(auto it = musicMap.begin(); it != musicMap.end(); ++it) {
+            if(deleteMusic->getData().getTitle() == it.value().getTitle()) {
+                tmpFrame = it.key();
+            }
+        }
+
+        QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(tmpFrame->layout());
+        QLayoutItem *item = hLayout->itemAt(0);
+        QPushButton *icon = qobject_cast<QPushButton*>(item->widget());
+        delete icon;
+        item = nullptr;
+        item = hLayout->itemAt(0);
+        QLabel *label = qobject_cast<QLabel*>(item->widget());
+        delete label;
+        delete hLayout;
+        delete tmpFrame;
+
+
+        checkedPlayList.deleteData(&deleteMusic);
+
+        playListMap[frame] = checkedPlayList.getHead();
+        playLists[playListName->text()] = checkedPlayList;
+
+    }else return;
 }
 
-void MainWindow::deleteMusic(QString) {
-
+Node<Music> *MainWindow::findMusic(QString name, LinkList<Music> &list) {
+    Node<Music> * tmp = list.getHead();
+    while(tmp != nullptr) {
+        if(tmp->getData().getTitle() == name)
+            return tmp;
+    }
+    return tmp;
 }
 
 void MainWindow::searchPBClicked()

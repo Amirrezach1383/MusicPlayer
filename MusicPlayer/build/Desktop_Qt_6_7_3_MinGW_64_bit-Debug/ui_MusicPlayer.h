@@ -66,7 +66,7 @@ public:
     QFrame *musicFrame;
     QVBoxLayout *verticalLayout_9;
     QSpacerItem *verticalSpacer_2;
-    QPushButton *deleteSongPB;
+    QPushButton *deleteMusicPB;
     QWidget *widget_3;
     QVBoxLayout *verticalLayout_6;
     QHBoxLayout *horizontalLayout_7;
@@ -292,12 +292,12 @@ public:
 
         verticalLayout_4->addWidget(musicsSA);
 
-        deleteSongPB = new QPushButton(widget_2);
-        deleteSongPB->setObjectName("deleteSongPB");
-        deleteSongPB->setIcon(icon2);
-        deleteSongPB->setIconSize(QSize(20, 20));
+        deleteMusicPB = new QPushButton(widget_2);
+        deleteMusicPB->setObjectName("deleteMusicPB");
+        deleteMusicPB->setIcon(icon2);
+        deleteMusicPB->setIconSize(QSize(20, 20));
 
-        verticalLayout_4->addWidget(deleteSongPB);
+        verticalLayout_4->addWidget(deleteMusicPB);
 
 
         horizontalLayout_4->addWidget(widget_2);
@@ -390,7 +390,7 @@ public:
         horizontalLayout_6->addItem(horizontalSpacer_7);
 
         prevPB = new QPushButton(widget_3);
-        prevPB->setObjectName("prePB");
+        prevPB->setObjectName("prevPB");
         prevPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/Icons/prev.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
@@ -482,7 +482,7 @@ public:
         deletePlayListPB->setText(QCoreApplication::translate("MainWindow", "Delete PlayList", nullptr));
         musicL->setText(QCoreApplication::translate("MainWindow", "Musics", nullptr));
         addMusicPB->setText(QCoreApplication::translate("MainWindow", "Add Music", nullptr));
-        deleteSongPB->setText(QCoreApplication::translate("MainWindow", "Delete Music", nullptr));
+        deleteMusicPB->setText(QCoreApplication::translate("MainWindow", "Delete Music", nullptr));
         songNameL->setText(QCoreApplication::translate("MainWindow", "song name", nullptr));
         loopPB->setText(QString());
         prevPB->setText(QString());

@@ -12,6 +12,7 @@
 #include <QMediaMetaData>
 #include <LinkList.h>
 #include <QMessageBox>
+#include <NewQMessageBox.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -35,6 +36,7 @@ private slots :
     void loopPBClicked ();
     void nextMusic ();
     void prevMusic ();
+    void deleteMusicPBClicked ();
 
 
 public:
@@ -55,8 +57,8 @@ public:
     void breakPlayListLoop ();
     Node<Music> * findPlayingMusic (LinkList<Music>);
     void playMusic (Music&);
-    void deleteMusicPBClicked ();
-    void deleteMusic (QString name);
+
+    Node<Music> * findMusic (QString, LinkList<Music>&);
 
     void searchPBClicked ();
 

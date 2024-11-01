@@ -113,11 +113,24 @@ public:
     bool isLooped () {
         if(tail->getNext() == head)
             return true;
+        return false;
     }
 
     void breakLoop () {
         tail->setNext(nullptr);
         head->setPrev(nullptr);
+    }
+
+    bool isAvailble (T data) {
+        Node<T> *tmp = head;
+        if(tail->getData() == data) return true;
+
+        while(tmp->getNext() != head || tmp != nullptr) {
+            if(tmp->getData() == data)
+                return true;
+            tmp = tmp->getNext();
+        }
+        return false;
     }
 
     Node<T>* find (T data) {
@@ -129,21 +142,19 @@ public:
                 return tmp;
             tmp = tmp->getNext();
         }
-        return false;
+        return tmp;
     }
 
-    void deleteData (T data) {
-        Node<T> * tmp = find(data);
-
-        if(tmp == head) {
+    void deleteData (Node<T>** data) {
+        if(*data == head) {
             head->getNext()->setPrev(head->getPrev());
             head = head->getNext();
-            delete tmp;
+            delete *data;
         }
         else {
-            tmp->getPrev()->setNext(tmp->getNext());
-            tmp->getNext()->setPrev(tmp->getPrev());
-            delete tmp;
+            (*data)->getPrev()->setNext((*data)->getNext());
+            (*data)->getNext()->setPrev((*data)->getPrev());
+            delete *data;
         }
     }
 

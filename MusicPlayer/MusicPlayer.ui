@@ -316,7 +316,7 @@ QLabel {
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="deleteSongPB">
+             <widget class="QPushButton" name="deleteMusicPB">
               <property name="text">
                <string>Delete Music</string>
               </property>
@@ -475,7 +475,7 @@ QSlider::handle:disabled {
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="prePB">
+          <widget class="QPushButton" name="prevPB">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
