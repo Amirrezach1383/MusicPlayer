@@ -46,9 +46,17 @@ public:
     void addMusicToPlayList (Music music);
     void unCheckedOtherMusicFrame (NewQFrame *);
 
+    void loopPlayList ();
+    void nextMusic ();
+    void prevMusic ();
+    void deleteMusicPBClicked ();
+    void deleteMusic (QString name);
 
+    void searchPBClicked ();
 
+    void deletePlayListPBClicked ();
 
+    void shufflePBClicked ();
 
 private:
     QMediaPlayer *mediaPlayer;

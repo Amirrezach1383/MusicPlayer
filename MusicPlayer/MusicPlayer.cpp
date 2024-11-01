@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->addPlayListPB, SIGNAL(clicked(bool)), this, SLOT(makeAndSetPlayListWidget()));
     connect(ui->StopPB, SIGNAL(clicked(bool)), this, SLOT(playAndStopMusic()));
 
+
+
     makeAndSetPlayListWidget();
 }
 
@@ -118,6 +120,45 @@ void MainWindow::unCheckedOtherMusicFrame(NewQFrame *frame) {
 
 }
 
+void MainWindow::loopPlayList()
+{
+
+}
+
+void MainWindow::nextMusic()
+{
+
+}
+
+void MainWindow::prevMusic()
+{
+
+}
+
+void MainWindow::deleteMusicPBClicked()
+{
+
+}
+
+void MainWindow::deleteMusic(QString name)
+{
+
+}
+
+void MainWindow::searchPBClicked()
+{
+
+}
+
+void MainWindow::deletePlayListPBClicked()
+{
+
+}
+
+void MainWindow::shufflePBClicked() {
+
+}
+
 
 
 void MainWindow::makeAndSetPlayListWidget() {
@@ -158,14 +199,14 @@ void MainWindow::makeAndSetPlayListWidget() {
 }
 
 void MainWindow::playListFrameClicked() {
-    if (mediaPlayer->isPlaying()) {
-        mediaPlayer->pause();
-    }
-
     NewQFrame *frame = qobject_cast<NewQFrame*>(sender());
     unCheckedOtherPlayListsFrame(frame);
 
+    if(frame->isChecked() == false) {
+
     setPlayListsMusic(frame);
+
+    } else cleanMusicField();
 }
 
 void MainWindow::playMusic() {

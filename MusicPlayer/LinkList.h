@@ -121,9 +121,6 @@ public:
         head = data;
     }
 
-    void operator << (T data) {
-        this->pushBack(data);
-    }
 };
 
 
