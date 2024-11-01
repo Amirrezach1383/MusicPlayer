@@ -78,7 +78,7 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QPushButton *loopPB;
     QSpacerItem *horizontalSpacer_7;
-    QPushButton *prePB;
+    QPushButton *prevPB;
     QSpacerItem *horizontalSpacer_8;
     QPushButton *StopPB;
     QSpacerItem *horizontalSpacer_9;
@@ -389,15 +389,15 @@ public:
 
         horizontalLayout_6->addItem(horizontalSpacer_7);
 
-        prePB = new QPushButton(widget_3);
-        prePB->setObjectName("prePB");
-        prePB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        prevPB = new QPushButton(widget_3);
+        prevPB->setObjectName("prePB");
+        prevPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/Icons/prev.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        prePB->setIcon(icon4);
-        prePB->setIconSize(QSize(20, 20));
+        prevPB->setIcon(icon4);
+        prevPB->setIconSize(QSize(20, 20));
 
-        horizontalLayout_6->addWidget(prePB);
+        horizontalLayout_6->addWidget(prevPB);
 
         horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
@@ -485,7 +485,7 @@ public:
         deleteSongPB->setText(QCoreApplication::translate("MainWindow", "Delete Music", nullptr));
         songNameL->setText(QCoreApplication::translate("MainWindow", "song name", nullptr));
         loopPB->setText(QString());
-        prePB->setText(QString());
+        prevPB->setText(QString());
         StopPB->setText(QString());
         nextPB->setText(QString());
         shufflePB->setText(QString());

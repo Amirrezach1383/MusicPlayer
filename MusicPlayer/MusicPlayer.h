@@ -33,6 +33,8 @@ private slots :
     void playListFrameClicked ();
     void musicFrameClicked();
     void loopPBClicked ();
+    void nextMusic ();
+    void prevMusic ();
 
 
 public:
@@ -51,10 +53,8 @@ public:
 
     void makePlayListLoop ();
     void breakPlayListLoop ();
-    void nextMusic ();
     Node<Music> * findPlayingMusic (LinkList<Music>);
     void playMusic (Music&);
-    void prevMusic ();
     void deleteMusicPBClicked ();
     void deleteMusic (QString name);
 

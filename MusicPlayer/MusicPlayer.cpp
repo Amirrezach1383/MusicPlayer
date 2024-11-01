@@ -22,6 +22,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->loopPB, SIGNAL(clicked(bool)), this, SLOT(loopPBClicked()));
 
+    connect(ui->nextPB, SIGNAL(clicked(bool)), this, SLOT(nextMusic()));
+    connect(ui->prevPB, SIGNAL(clicked(bool)), this, SLOT(prevMusic()));
+
     makeAndSetPlayListWidget();
 }
 
@@ -169,12 +172,18 @@ void MainWindow::nextMusic() {
     QLabel *playListName = qobject_cast<QLabel*>(item->widget());
 
     LinkList<Music> checkedPlayList = playLists[playListName->text()];
-    Node<Music> * playMusic  = findPlayingMusic(checkedPlayList);
+    if(checkedPlayList.getSize() == 0)
+        return;
 
+    Node<Music> * playedMusic  = findPlayingMusic(checkedPlayList);
 
+    playedMusic = playedMusic->getNext();
 
+    if(playedMusic == nullptr)
+        playedMusic = checkedPlayList.getHead();
 
-
+    Music music = playedMusic->getData();
+    playMusic(music);
 }
 
 Node<Music>* MainWindow::findPlayingMusic(LinkList<Music> musicList){
@@ -196,18 +205,32 @@ void MainWindow::playMusic(Music & music) {
     ui->StopPB->setChecked(true);
 }
 
-void MainWindow::prevMusic()
-{
+void MainWindow::prevMusic() {
+    NewQFrame * frame = findCheckedPlayListFrame();
+    QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
+    QLayoutItem *item = hLayout->itemAt(1);
+    QLabel *playListName = qobject_cast<QLabel*>(item->widget());
+
+    LinkList<Music> checkedPlayList = playLists[playListName->text()];
+    if(checkedPlayList.getSize() == 0)
+        return;
+
+    Node<Music> * playedMusic  = findPlayingMusic(checkedPlayList);
+
+    playedMusic = playedMusic->getPrev();
+
+    if(playedMusic == nullptr)
+        playedMusic = checkedPlayList.getTail();
+
+    Music music = playedMusic->getData();
+    playMusic(music);
+}
+
+void MainWindow::deleteMusicPBClicked() {
 
 }
 
-void MainWindow::deleteMusicPBClicked()
-{
-
-}
-
-void MainWindow::deleteMusic(QString name)
-{
+void MainWindow::deleteMusic(QString) {
 
 }
 

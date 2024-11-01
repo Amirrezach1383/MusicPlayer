@@ -17,7 +17,8 @@ HEADERS += \
     LinkList.h \
     Music.h \
     MusicPlayer.h \
-    NewQFrame.h
+    NewQFrame.h \
+    NewQMessageBox.h
 
 FORMS += \
     MusicPlayer.ui
