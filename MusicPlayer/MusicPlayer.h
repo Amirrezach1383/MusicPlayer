@@ -43,6 +43,7 @@ public:
     void cleanMusicField();
 
     bool playListChecked();
+    void addMusicToPlayList (Music music);
 
 
 

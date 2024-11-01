@@ -78,6 +78,27 @@ bool MainWindow::playListChecked(){
     return false;
 }
 
+void MainWindow::addMusicToPlayList(Music music) {
+    NewQFrame * frame;
+    LinkList<Music> playList;
+
+    for(auto it = playListMap.begin(); it != playListMap.end(); ++it) {
+        if(it.key()->isChecked()) {
+            frame = it.key();
+        }
+    }
+
+    QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
+    QLayoutItem *item = hLayout->itemAt(1);
+    QLabel *playListName = qobject_cast<QLabel*>(item->widget());
+    LinkList<Music> checkedPlayList = playLists[playListName->text()];
+    checkedPlayList.pushBack(music);
+
+    playLists[playListName->text()] = checkedPlayList;
+    playListMap.insert(frame, playList.getHead());
+
+}
+
 
 
 void MainWindow::makeAndSetPlayListWidget() {
