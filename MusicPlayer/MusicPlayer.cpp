@@ -1,5 +1,6 @@
 #include "MusicPlayer.h"
 #include "ui_MusicPlayer.h"
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->addMusicPB, SIGNAL(clicked(bool)), this, SLOT(addMusicPB()));
     connect(ui->addPlayListPB, SIGNAL(clicked(bool)), this, SLOT(makeAndSetPlayListWidget()));
+    connect(ui->StopPB, SIGNAL(clicked(bool)), this, SLOT(playAndStopMusic()));
 
     makeAndSetPlayListWidget();
 }
@@ -51,8 +53,10 @@ void MainWindow::setPlayListsMusic(NewQFrame* frame){
 
 void MainWindow::cleanMusicField() {
     QVBoxLayout * vLayout = qobject_cast<QVBoxLayout*>(ui->musicFrame->layout());
-    for(int i = 0; i < vLayout->count() - 1; i++) {
-        QLayoutItem *item = vLayout->itemAt(i);
+    for(int i = 0; i < vLayout->count(); i++) {
+        if(vLayout->count() == 1) continue;
+
+        QLayoutItem *item = vLayout->itemAt(0);
         NewQFrame *tmpFrame = qobject_cast<NewQFrame*>(item->widget());
 
         for(auto it = musicMap.begin(); it != musicMap.end(); it++) {
@@ -61,9 +65,16 @@ void MainWindow::cleanMusicField() {
         }
 
         QHBoxLayout *tmpHLayout = qobject_cast<QHBoxLayout*>(tmpFrame->layout());
-        while(tmpHLayout->count() != 0) {
-            delete tmpHLayout->itemAt(0);
-        }
+        item = nullptr;
+        item = tmpHLayout->itemAt(0);
+        QPushButton *icon = qobject_cast<QPushButton*>(item->widget());
+        delete icon;
+        item = nullptr;
+        item = tmpHLayout->itemAt(0);
+        QLabel *label = qobject_cast<QLabel*>(item->widget());
+        // QString lbl = label->text();
+        delete label;
+        delete tmpHLayout;
         delete tmpFrame;
     }
 
@@ -96,6 +107,14 @@ void MainWindow::addMusicToPlayList(Music music) {
 
     playLists[playListName->text()] = checkedPlayList;
     playListMap.insert(frame, playList.getHead());
+
+}
+
+void MainWindow::unCheckedOtherMusicFrame(NewQFrame *frame) {
+    for(auto it = musicMap.begin(); it != musicMap.end(); ++it) {
+        if(it.key() == frame) continue;
+        else it.key()->setChecked(false);
+    }
 
 }
 
@@ -139,6 +158,10 @@ void MainWindow::makeAndSetPlayListWidget() {
 }
 
 void MainWindow::playListFrameClicked() {
+    if (mediaPlayer->isPlaying()) {
+        mediaPlayer->pause();
+    }
+
     NewQFrame *frame = qobject_cast<NewQFrame*>(sender());
     unCheckedOtherPlayListsFrame(frame);
 
@@ -147,6 +170,7 @@ void MainWindow::playListFrameClicked() {
 
 void MainWindow::playMusic() {
     NewQFrame *frame = qobject_cast<NewQFrame*>(sender());
+    unCheckedOtherMusicFrame(frame);
     Music music;
 
     for(auto it = musicMap.begin(); it != musicMap.end(); ++it) {
@@ -222,6 +246,6 @@ void MainWindow::addMusicPB() {
     QFileInfo file(fileName);
     music.setTitle(file.fileName());
     makeAndSetMusicsWidget(music);
-
+    addMusicToPlayList(music);
 }
 

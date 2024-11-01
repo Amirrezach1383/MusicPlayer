@@ -44,6 +44,7 @@ public:
 
     bool playListChecked();
     void addMusicToPlayList (Music music);
+    void unCheckedOtherMusicFrame (NewQFrame *);
 
 
 
