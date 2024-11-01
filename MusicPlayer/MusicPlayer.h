@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include <QMediaMetaData>
 #include <LinkList.h>
+#include <QMessageBox>
 
 
 QT_BEGIN_NAMESPACE

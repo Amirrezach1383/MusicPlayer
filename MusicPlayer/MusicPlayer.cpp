@@ -134,7 +134,7 @@ void MainWindow::playMusic() {
             break;
         }
     }
-    QString musicAddress = music.getAddress();
+
     mediaPlayer->setSource(QUrl::fromLocalFile(music.getAddress()));
     mediaPlayer->play();
     ui->StopPB->setChecked(true);
@@ -182,6 +182,15 @@ void MainWindow::playAndStopMusic() {
 }
 
 void MainWindow::addMusicPB() {
+    if(!playListChecked()) {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle(tr("Error"));
+        msgBox.setText(tr("Please select a playlist"));
+
+        msgBox.exec();
+        return;
+    }
+
     QString fileName = QFileDialog::getOpenFileName(this, "Select Media File", "", "Audio Files (*.mp3)");
     Music music;
     if(!fileName.isEmpty()) {
