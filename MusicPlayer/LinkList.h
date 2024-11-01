@@ -105,6 +105,48 @@ public:
         return false;
     }
 
+    void makeLoop () {
+        tail->setNext(head);
+        head->setPrev(tail);
+    }
+
+    bool isLooped () {
+        if(tail->getNext() == head)
+            return true;
+    }
+
+    void breakLoop () {
+        tail->setNext(nullptr);
+        head->setPrev(nullptr);
+    }
+
+    Node<T>* find (T data) {
+        Node<T> *tmp = head;
+        if(tail->getData() == data) return tail;
+
+        while(tmp->getNext() != head || tmp != nullptr) {
+            if(tmp->getData() == data)
+                return tmp;
+            tmp = tmp->getNext();
+        }
+        return false;
+    }
+
+    void deleteData (T data) {
+        Node<T> * tmp = find(data);
+
+        if(tmp == head) {
+            head->getNext()->setPrev(head->getPrev());
+            head = head->getNext();
+            delete tmp;
+        }
+        else {
+            tmp->getPrev()->setNext(tmp->getNext());
+            tmp->getNext()->setPrev(tmp->getPrev());
+            delete tmp;
+        }
+    }
+
     /// Getter
     Node<T> * getTail(){
         return tail;

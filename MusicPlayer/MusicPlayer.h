@@ -31,7 +31,9 @@ private slots :
     void makeAndSetMusicsWidget (Music);
     void makeAndSetPlayListWidget ();
     void playListFrameClicked ();
-    void playMusic();
+    void musicFrameClicked();
+    void loopPBClicked ();
+
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -42,12 +44,16 @@ public:
     void setPlayListsMusic(NewQFrame*);
     void cleanMusicField();
 
-    bool playListChecked();
+    bool playListIsChecked();
     void addMusicToPlayList (Music music);
     void unCheckedOtherMusicFrame (NewQFrame *);
+    NewQFrame* findCheckedPlayListFrame ();
 
-    void loopPlayList ();
+    void makePlayListLoop ();
+    void breakPlayListLoop ();
     void nextMusic ();
+    Node<Music> * findPlayingMusic (LinkList<Music>);
+    void playMusic (Music&);
     void prevMusic ();
     void deleteMusicPBClicked ();
     void deleteMusic (QString name);
@@ -62,6 +68,7 @@ private:
     QMediaPlayer *mediaPlayer;
     QAudioOutput *audioOutPut;
     Ui::MainWindow *ui;
+    QString playingMusic;
     QHash<NewQFrame*, Node<Music>*> playListMap ;
     QHash<NewQFrame*, Music> musicMap;
 
