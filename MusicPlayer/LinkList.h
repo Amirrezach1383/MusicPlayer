@@ -2,7 +2,11 @@
 #define LINKLIST_H
 
 template <class T>
+class LinkList;
+
+template<class T>
 class Node {
+    friend class LinkList<T>;
 private:
     T data;
     Node<T>* next;
@@ -30,10 +34,10 @@ public:
     T getData(){
         return data;
     }
-    Node* getNext(){
+    Node<T>* getNext(){
         return next;
     }
-    Node * getPrev(){
+    Node<T>* getPrev(){
         return prev;
     }
 
@@ -146,16 +150,24 @@ public:
     }
 
     void deleteData (Node<T>** data) {
-        if(*data == head) {
-            head->getNext()->setPrev(head->getPrev());
-            head = head->getNext();
-            delete *data;
+        if(size == 1) {
+            head = nullptr;
+            tail = nullptr;
+            delete (*data);
+        }
+        else if((*data) == head) {
+            Node<T> * tmp = head->next;
+            tmp->prev = nullptr;
+            head = head->next;
+            delete (*data);
+            // delete data;
         }
         else {
             (*data)->getPrev()->setNext((*data)->getNext());
             (*data)->getNext()->setPrev((*data)->getPrev());
             delete *data;
         }
+        size --;
     }
 
     /// Getter

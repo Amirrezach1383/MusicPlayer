@@ -37,6 +37,7 @@ private slots :
     void nextMusic ();
     void prevMusic ();
     void deleteMusicPBClicked ();
+    void checkMusicFinished ();
 
 
 public:
@@ -53,9 +54,12 @@ public:
     void unCheckedOtherMusicFrame (NewQFrame *);
     NewQFrame* findCheckedPlayListFrame ();
 
+    bool isLastMusic ();
+
     void makePlayListLoop ();
     void breakPlayListLoop ();
     Node<Music> * findPlayingMusic (LinkList<Music>);
+    void checkThePlayingMusic (Music);
     void playMusic (Music&);
 
     Node<Music> * findMusic (QString, LinkList<Music>&);
@@ -65,6 +69,7 @@ public:
     void deletePlayListPBClicked ();
 
     void shufflePBClicked ();
+
 
 private:
     QMediaPlayer *mediaPlayer;

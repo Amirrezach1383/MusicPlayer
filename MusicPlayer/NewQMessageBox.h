@@ -17,7 +17,7 @@ class NewQMessageBox : public QDialog{
 
             QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-            QLabel *label = new QLabel("Enter your text:", this);
+            label = new QLabel("Enter your text:", this);
             mainLayout->addWidget(label);
 
             comboBox = new QComboBox(this);
@@ -40,10 +40,13 @@ class NewQMessageBox : public QDialog{
         void addItem (QString item) {
             comboBox->addItem(item);
         }
+        void setLabelText (QString text) {
+            label->setText(text);
+        }
 
     private:
         QComboBox *comboBox;
-
+        QLabel *label;
 };
 
 #endif // NEWQMESSAGEBOX_H
