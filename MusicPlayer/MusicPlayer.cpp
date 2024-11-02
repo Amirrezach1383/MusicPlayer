@@ -362,7 +362,32 @@ Node<Music> *MainWindow::findMusic(QString name, LinkList<Music> &list) {
 }
 
 void MainWindow::searchPBClicked(){
+    if(ui->searchLE->text() == "") {
+        ui->searchBoxErrorLB->setText("Please fill the field");
+        return;
+    }
+    NewQFrame * frame = findCheckedPlayListFrame();
+    QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
+    QLayoutItem *item = hLayout->itemAt(1);
+    QLabel *playListName = qobject_cast<QLabel*>(item->widget());
+    LinkList<Music> checkedPlaylist = playLists[playListName->text()];
 
+    QString musicName = ui->searchLE->text();
+
+    Node<Music> * tmp = checkedPlaylist.getHead();
+    while(tmp != nullptr) {
+        if(tmp->getData().getTitle() == musicName)
+            break;
+        tmp = tmp->getNext();
+    }
+
+    if(tmp == nullptr) {
+        ui->searchBoxErrorLB->setText("Not found");
+        return;
+    }
+
+    cleanMusicField();
+    makeAndSetMusicsWidget(tmp->getData());
 }
 
 void MainWindow::deletePlayListPBClicked() {
