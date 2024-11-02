@@ -39,13 +39,15 @@ private slots :
     void prevMusic ();
     void deleteMusicPBClicked ();
     void checkMusicFinished ();
+    void searchPBClicked ();
+    void deletePlayListPBClicked ();
 
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    std::map<QString, LinkList<Music>> playLists;
 
+    void shufflePlayingMusics ();
     void unCheckedOtherPlayListsFrame(NewQFrame*);
     void setPlayListsMusic(NewQFrame*);
     void cleanMusicField();
@@ -65,14 +67,8 @@ public:
 
     Node<Music> * findMusic (QString, LinkList<Music>&);
 
-    void searchPBClicked ();
-
-    void deletePlayListPBClicked ();
-
-    void shufflePBClicked ();
-
-
 private:
+    std::map<QString, LinkList<Music>> playLists;
     QMediaPlayer *mediaPlayer;
     QAudioOutput *audioOutPut;
     Ui::MainWindow *ui;

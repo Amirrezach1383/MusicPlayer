@@ -25,6 +25,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->nextPB, SIGNAL(clicked(bool)), this, SLOT(nextMusic()));
     connect(ui->prevPB, SIGNAL(clicked(bool)), this, SLOT(prevMusic()));
 
+    // connect(ui->shufflePB, SIGNAL(clicked(bool)), this, SLOT(shufflePBClicked()));
+    connect(ui->searchPB, SIGNAL(clicked(bool)), this, SLOT(searchPBClicked()));
+    connect(ui->deletePlayListPB, SIGNAL(clicked(bool)), this, SLOT(deletePlayListPBClicked()));
+
     connect(ui->deleteMusicPB, SIGNAL(clicked(bool)), this, SLOT(deleteMusicPBClicked()));
 
     makeAndSetPlayListWidget();
@@ -340,6 +344,9 @@ void MainWindow::checkMusicFinished() {
                 ui->StopPB->setChecked(false);
             }
         }
+        else if(ui->shufflePB->isChecked()) {
+            shufflePlayingMusics();
+        }
         else
             nextMusic();
     }
@@ -362,7 +369,7 @@ void MainWindow::deletePlayListPBClicked() {
 
 }
 
-void MainWindow::shufflePBClicked() {
+void MainWindow::shufflePlayingMusics() {
     if(!ui->shufflePB->isChecked()) return;
 
     NewQFrame * frame = findCheckedPlayListFrame();
@@ -383,6 +390,9 @@ void MainWindow::shufflePBClicked() {
     }
     checkedPlaylist.breakLoop();
     Music music = tmp->getData();
+    ui->StopPB->setChecked(true);
+    checkThePlayingMusic(music);
+    ui->songNameL->setText(music.getTitle());
 
     playMusic(music);
 }
