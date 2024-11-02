@@ -13,6 +13,7 @@
 #include <LinkList.h>
 #include <QMessageBox>
 #include <NewQMessageBox.h>
+#include <random>
 
 
 QT_BEGIN_NAMESPACE

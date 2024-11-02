@@ -363,7 +363,28 @@ void MainWindow::deletePlayListPBClicked() {
 }
 
 void MainWindow::shufflePBClicked() {
+    if(!ui->shufflePB->isChecked()) return;
 
+    NewQFrame * frame = findCheckedPlayListFrame();
+    QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
+    QLayoutItem *item = hLayout->itemAt(1);
+    QLabel *playListName = qobject_cast<QLabel*>(item->widget());
+    LinkList<Music> checkedPlaylist = playLists[playListName->text()];
+    int size = checkedPlaylist.getSize();
+
+    srand(time(0));
+    int randomNum = std::rand() % size + 1;
+
+    checkedPlaylist.makeLoop();
+    Node<Music> *tmp = checkedPlaylist.getHead();
+    while(randomNum > 0) {
+        tmp = tmp->getNext();
+        randomNum --;
+    }
+    checkedPlaylist.breakLoop();
+    Music music = tmp->getData();
+
+    playMusic(music);
 }
 
 void MainWindow::makeAndSetPlayListWidget() {
@@ -475,7 +496,12 @@ void MainWindow::playAndStopMusic() {
         QLayoutItem *item = hLayout->itemAt(1);
         QLabel *playListName = qobject_cast<QLabel*>(item->widget());
         LinkList<Music> checkedPlaylist = playLists[playListName->text()];
+
+        if(checkedPlaylist.getSize() == 0) return;
+
         Music music = checkedPlaylist.getHead()->getData();
+        ui->songNameL->setText(music.getTitle());
+        checkThePlayingMusic(music);
         playMusic(music);
 
     }
