@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>810</width>
-    <height>843</height>
+    <width>850</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="cursor">
@@ -17,7 +17,10 @@
    <string>Music Player</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton {
+   <string notr="true">QMainWindow {
+	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);
+}
+QPushButton {
 	border:none;
 	background: transparent;
 }
@@ -46,6 +49,9 @@ QLabel {
 	color: rgb(255, 255, 255);
 	height : 40 px;
 	border-radius:5px;
+}
+QFrame {
+
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -179,8 +185,8 @@ QLabel {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>376</width>
-                 <height>524</height>
+                 <width>396</width>
+                 <height>625</height>
                 </rect>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -214,23 +220,6 @@ QLabel {
                 </item>
                </layout>
               </widget>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="deletePlayListPB">
-              <property name="text">
-               <string>Delete PlayList</string>
-              </property>
-              <property name="icon">
-               <iconset resource="pictures.qrc">
-                <normaloff>:/Icons/delete.png</normaloff>:/Icons/delete.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>20</width>
-                <height>20</height>
-               </size>
-              </property>
              </widget>
             </item>
            </layout>
@@ -274,7 +263,12 @@ QLabel {
         border:none;
         background: transparent;
         text-align : center;
-        }</string>
+}
+QScrollArea { 
+
+	background: rgba(8, 0, 35, 204); 
+	border: transparent;
+}</string>
               </property>
               <property name="widgetResizable">
                <bool>true</bool>
@@ -284,9 +278,15 @@ QLabel {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>376</width>
-                 <height>524</height>
+                 <width>398</width>
+                 <height>583</height>
                 </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QWidget {
+	background: transparent;
+}
+</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_8">
                 <item>

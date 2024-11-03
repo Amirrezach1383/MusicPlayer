@@ -25,13 +25,22 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->nextPB, SIGNAL(clicked(bool)), this, SLOT(nextMusic()));
     connect(ui->prevPB, SIGNAL(clicked(bool)), this, SLOT(prevMusic()));
 
-    // connect(ui->shufflePB, SIGNAL(clicked(bool)), this, SLOT(shufflePBClicked()));
     connect(ui->searchPB, SIGNAL(clicked(bool)), this, SLOT(searchPBClicked()));
-    connect(ui->deletePlayListPB, SIGNAL(clicked(bool)), this, SLOT(deletePlayListPBClicked()));
 
     connect(ui->deleteMusicPB, SIGNAL(clicked(bool)), this, SLOT(deleteMusicPBClicked()));
 
     makeAndSetPlayListWidget();
+
+    // QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect;
+    // effect->setOpacity(0.8);
+
+    // ui->playListsSongsSA->setGraphicsEffect(effect);
+    // ui->musicsSA->setGraphicsEffect(effect);
+
+    // // effect->setOpacity()
+    // ui->musicFrame->setWindowOpacity(1);
+    // ui->musicFrame->setWindowOpacity(1);
+
 }
 
 MainWindow::~MainWindow() {
@@ -390,10 +399,6 @@ void MainWindow::searchPBClicked(){
 
     cleanMusicField();
     makeAndSetMusicsWidget(tmp->getData());
-}
-
-void MainWindow::deletePlayListPBClicked() {
-
 }
 
 void MainWindow::shufflePlayingMusics() {

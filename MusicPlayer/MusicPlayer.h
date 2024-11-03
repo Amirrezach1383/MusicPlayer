@@ -13,7 +13,7 @@
 #include <LinkList.h>
 #include <QMessageBox>
 #include <NewQMessageBox.h>
-#include <random>
+#include <QGraphicsOpacityEffect>
 
 
 QT_BEGIN_NAMESPACE
@@ -40,8 +40,6 @@ private slots :
     void deleteMusicPBClicked ();
     void checkMusicFinished ();
     void searchPBClicked ();
-    void deletePlayListPBClicked ();
-
 
 public:
     MainWindow(QWidget *parent = nullptr);

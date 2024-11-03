@@ -54,7 +54,6 @@ public:
     QFrame *frame_2;
     QVBoxLayout *verticalLayout_10;
     QSpacerItem *verticalSpacer;
-    QPushButton *deletePlayListPB;
     QWidget *widget_2;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_3;
@@ -91,9 +90,12 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(810, 843);
+        MainWindow->resize(850, 900);
         MainWindow->setCursor(QCursor(Qt::CursorShape::ArrowCursor));
-        MainWindow->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+        MainWindow->setStyleSheet(QString::fromUtf8("QMainWindow {\n"
+"	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);\n"
+"}\n"
+"QPushButton {\n"
 "	border:none;\n"
 "	background: transparent;\n"
 "}\n"
@@ -122,6 +124,9 @@ public:
 "	color: rgb(255, 255, 255);\n"
 "	height : 40 px;\n"
 "	border-radius:5px;\n"
+"}\n"
+"QFrame {\n"
+"\n"
 "}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -208,7 +213,7 @@ public:
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 376, 524));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 396, 625));
         verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_7->setObjectName("verticalLayout_7");
         frame_2 = new QFrame(scrollAreaWidgetContents);
@@ -228,15 +233,6 @@ public:
         playListsSongsSA->setWidget(scrollAreaWidgetContents);
 
         verticalLayout_3->addWidget(playListsSongsSA);
-
-        deletePlayListPB = new QPushButton(widget);
-        deletePlayListPB->setObjectName("deletePlayListPB");
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/Icons/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        deletePlayListPB->setIcon(icon2);
-        deletePlayListPB->setIconSize(QSize(20, 20));
-
-        verticalLayout_3->addWidget(deletePlayListPB);
 
 
         horizontalLayout_4->addWidget(widget);
@@ -268,11 +264,20 @@ public:
 "        border:none;\n"
 "        background: transparent;\n"
 "        text-align : center;\n"
-"        }"));
+"}\n"
+"QScrollArea { \n"
+"\n"
+"	background: rgba(8, 0, 35, 204); \n"
+"	border: transparent;\n"
+"}"));
         musicsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 376, 524));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 398, 583));
+        scrollAreaWidgetContents_2->setStyleSheet(QString::fromUtf8("QWidget {\n"
+"	background: transparent;\n"
+"}\n"
+""));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setObjectName("verticalLayout_8");
         musicFrame = new QFrame(scrollAreaWidgetContents_2);
@@ -294,6 +299,8 @@ public:
 
         deleteMusicPB = new QPushButton(widget_2);
         deleteMusicPB->setObjectName("deleteMusicPB");
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Icons/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         deleteMusicPB->setIcon(icon2);
         deleteMusicPB->setIconSize(QSize(20, 20));
 
@@ -479,7 +486,6 @@ public:
         searchBoxErrorLB->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "Play Lists", nullptr));
         addPlayListPB->setText(QCoreApplication::translate("MainWindow", "Add Play List", nullptr));
-        deletePlayListPB->setText(QCoreApplication::translate("MainWindow", "Delete PlayList", nullptr));
         musicL->setText(QCoreApplication::translate("MainWindow", "Musics", nullptr));
         addMusicPB->setText(QCoreApplication::translate("MainWindow", "Add Music", nullptr));
         deleteMusicPB->setText(QCoreApplication::translate("MainWindow", "Delete Music", nullptr));
