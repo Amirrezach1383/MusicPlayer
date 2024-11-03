@@ -105,6 +105,9 @@ QLabel {
              <property name="orientation">
               <enum>Qt::Orientation::Horizontal</enum>
              </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Policy::Expanding</enum>
+             </property>
              <property name="sizeHint" stdset="0">
               <size>
                <width>40</width>
