@@ -11,39 +11,24 @@ public:
             "border: none;"
             "text-align: center;"
             "border-radius: 5px;"
-            "font: 9pt \" Playwrite DE Grund\";"
             "background-color: rgba(8, 0, 35, 0.8);"
-            "height: 40px;"
+            "height: 30px;"
+            "padding: 8px 16px;"
             "}"
 
             "QFrame:hover {"
-            "background-color: rgb(51, 51, 51);"
-            "font: 700 9pt \"Playwrite DE Grund\";"
+            "background-color: rgba(3, 0, 23, 1);"
+            "font: 700 12pt \"Playwrite DE Grund\";"
+            "}"
+            "QLabel {"
+            "text-align : center;"
+            "background : transparent;"
+            "font: 10pt \"Playwrite DE Grund\";"
+            "color: rgb(255, 255, 255);"
+            "height : 30 px;"
+            "border-radius:5px;"
             "}"
 
-            "QFrame:checked {"
-            "background-color: rgb(51, 51, 51);"
-            "font: 700 9pt \"Playwrite DE Grund\";"
-            "}"
-
-            // QPushButton {
-            //     text-align : center;
-
-            //     border-radius : 5 px;
-            // color: white;
-            // font: 9pt "Playwrite DE Grund";
-            // height : 40 px;
-            //     border-radius:5px;
-            // padding: 8px 16px;
-            // }
-            // QPushButton:hover {
-            //     background-color: rgba(8, 0, 35, 1);
-            // font: 700 9pt "Playwrite DE Grund";
-            // }
-            // QPushButton:checked {
-            //     background-color: rgba(5, 0, 25, 1);
-            // font: 700 9pt "Playwrite DE Grund";
-            // }
 
             );
     }
@@ -60,9 +45,49 @@ public slots :
             emit checkedChanged(frameChecked);
 
             if (frameChecked) {
-                setStyleSheet( "background-color: rgb(51, 51, 51);""font: 700 9pt \"Playwrite DE Grund\";");
+                setStyleSheet(
+                    "QFrame {"
+                    "background-color: rgba(3, 0, 23, 1);"
+                    "border : none;"
+                    "border-radius : 5px;"
+                    "height: 30px;"
+                    "padding : 8px 16px;"
+                    "}"
+
+                    "QLabel {"
+                    "text-align : center;"
+                    "background : transparent;"
+                    "font: 700 10pt \"Playwrite DE Grund\";"
+                    "color: rgb(255, 255, 255);"
+                    "height :30 px;"
+                    "border-radius:5px;"
+                    "}"
+
+                    );
             } else {
-                setStyleSheet("background-color: none; ");
+                setStyleSheet(
+                    "QFrame {"
+                    "border: none;"
+                    "text-align: center;"
+                    "border-radius: 5px;"
+                    "background-color: rgba(8, 0, 35, 0.8);"
+                    "height: 30px;"
+                    "padding: 8px 16px;"
+                    "}"
+
+                    "QFrame:hover {"
+                    "background-color: rgba(3, 0, 23, 1);"
+                    "font: 700 10pt \"Playwrite DE Grund\";"
+                    "}"
+
+                    "QLabel {"
+                    "text-align : center;"
+                    "background : transparent;"
+                    "font: 10pt \"Playwrite DE Grund\";"
+                    "color: rgb(255, 255, 255);"
+                    "height : 30 px;"
+                    "border-radius:5px;"
+                    "}");
             }
         }
     }

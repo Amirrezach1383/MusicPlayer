@@ -96,15 +96,7 @@ public:
 "	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);\n"
 "}\n"
 "\n"
-"QLabel {\n"
-"	text-align : center;\n"
-"	background : transparent; \n"
-"	border-radius : 5 px;\n"
-"	font: 9pt \"Playwrite DE Grund\";\n"
-"	color: rgb(255, 255, 255);\n"
-"	height : 40 px;\n"
-"	border-radius:5px;\n"
-"}"));
+""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout_5 = new QVBoxLayout(centralwidget);
@@ -192,6 +184,7 @@ public:
 
         mianWidget = new QWidget(centralwidget);
         mianWidget->setObjectName("mianWidget");
+        mianWidget->setStyleSheet(QString::fromUtf8(""));
         horizontalLayout_5 = new QHBoxLayout(mianWidget);
         horizontalLayout_5->setObjectName("horizontalLayout_5");
         horizontalLayout_4 = new QHBoxLayout();
@@ -204,6 +197,14 @@ public:
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         label = new QLabel(widget);
         label->setObjectName("label");
+        label->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	font: 15pt \"Playwrite DE Grund\";\n"
+"	color: rgb(255, 255, 255);\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"}"));
 
         horizontalLayout_2->addWidget(label);
 
@@ -249,7 +250,7 @@ public:
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 398, 579));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 398, 582));
         scrollAreaWidgetContents->setStyleSheet(QString::fromUtf8("QWidget {	\n"
 "	border:none;\n"
 "	background: transparent;\n"
@@ -285,6 +286,14 @@ public:
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         musicL = new QLabel(widget_2);
         musicL->setObjectName("musicL");
+        musicL->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	font: 15pt \"Playwrite DE Grund\";\n"
+"	color: rgb(255, 255, 255);\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"}"));
 
         horizontalLayout_3->addWidget(musicL);
 
@@ -308,6 +317,7 @@ public:
 "	background-color: rgba(5, 0, 25, 1); \n"
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
+"\n"
 ""));
         addMusicPB->setIcon(icon1);
         addMusicPB->setIconSize(QSize(20, 20));
@@ -327,7 +337,7 @@ public:
         musicsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 398, 519));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 398, 522));
         scrollAreaWidgetContents_2->setStyleSheet(QString::fromUtf8("QWidget {	\n"
 "	border:none;\n"
 "	background: transparent;\n"
@@ -400,6 +410,14 @@ public:
 
         songNameL = new QLabel(widget_3);
         songNameL->setObjectName("songNameL");
+        songNameL->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	font: 12pt \"Playwrite DE Grund\";\n"
+"	color: rgb(13, 0, 38);\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"}"));
 
         horizontalLayout_7->addWidget(songNameL);
 

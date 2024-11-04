@@ -21,15 +21,7 @@
 	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);
 }
 
-QLabel {
-	text-align : center;
-	background : transparent; 
-	border-radius : 5 px;
-	font: 9pt &quot;Playwrite DE Grund&quot;;
-	color: rgb(255, 255, 255);
-	height : 40 px;
-	border-radius:5px;
-}</string>
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -154,6 +146,9 @@ QPushButton:checked {
     </item>
     <item>
      <widget class="QWidget" name="mianWidget" native="true">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <layout class="QHBoxLayout" name="horizontalLayout_5">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -164,6 +159,16 @@ QPushButton:checked {
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
                <widget class="QLabel" name="label">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	text-align : center;
+	background : transparent; 
+	font: 15pt &quot;Playwrite DE Grund&quot;;
+	color: rgb(255, 255, 255);
+	height : 40 px;
+	border-radius:5px;
+}</string>
+                </property>
                 <property name="text">
                  <string>Play Lists</string>
                 </property>
@@ -228,7 +233,7 @@ QPushButton:checked {
                  <x>0</x>
                  <y>0</y>
                  <width>398</width>
-                 <height>579</height>
+                 <height>582</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -280,6 +285,16 @@ QPushButton:checked {
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
                <widget class="QLabel" name="musicL">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+	text-align : center;
+	background : transparent; 
+	font: 15pt &quot;Playwrite DE Grund&quot;;
+	color: rgb(255, 255, 255);
+	height : 40 px;
+	border-radius:5px;
+}</string>
+                </property>
                 <property name="text">
                  <string>Musics</string>
                 </property>
@@ -306,6 +321,7 @@ QPushButton:checked {
 	background-color: rgba(5, 0, 25, 1); 
 	font: 700 9pt &quot;Playwrite DE Grund&quot;;
 }
+
 </string>
                 </property>
                 <property name="text">
@@ -343,7 +359,7 @@ QPushButton:checked {
                  <x>0</x>
                  <y>0</y>
                  <width>398</width>
-                 <height>519</height>
+                 <height>522</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -448,6 +464,16 @@ QPushButton:checked {
          </item>
          <item>
           <widget class="QLabel" name="songNameL">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+	text-align : center;
+	background : transparent; 
+	font: 12pt &quot;Playwrite DE Grund&quot;;
+	color: rgb(13, 0, 38);
+	height : 40 px;
+	border-radius:5px;
+}</string>
+           </property>
            <property name="text">
             <string>song name</string>
            </property>

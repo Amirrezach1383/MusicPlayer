@@ -158,6 +158,7 @@ void MainWindow::makePlayListLoop(){
     QLabel *playListName = qobject_cast<QLabel*>(item->widget());
 
     LinkList<Music> checkedPlayList = playLists[playListName->text()];
+    if(checkedPlayList.getSize() == 0) return;
     checkedPlayList.makeLoop();
     playLists[playListName->text()] = checkedPlayList;
 
@@ -171,6 +172,7 @@ void MainWindow::breakPlayListLoop() {
     QLabel *playListName = qobject_cast<QLabel*>(item->widget());
 
     LinkList<Music> checkedPlayList = playLists[playListName->text()];
+    if(checkedPlayList.getSize() == 0) return;
     checkedPlayList.breakLoop();
     playLists[playListName->text()] = checkedPlayList;
 
@@ -178,6 +180,7 @@ void MainWindow::breakPlayListLoop() {
 }
 
 void MainWindow::loopPBClicked() {
+
     if(ui->loopPB->isChecked() == true) {
         makePlayListLoop();
     } else {
@@ -186,8 +189,9 @@ void MainWindow::loopPBClicked() {
 }
 
 void MainWindow::nextMusic() {
-    if(!mediaPlayer->isPlaying())
+    if(!mediaPlayer->isPlaying() || !playListIsChecked())
         return;
+
     NewQFrame * frame = findCheckedPlayListFrame();
     QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
     QLayoutItem *item = hLayout->itemAt(1);
@@ -240,6 +244,8 @@ void MainWindow::playMusic(Music & music) {
 }
 
 void MainWindow::prevMusic() {
+    if(!mediaPlayer->isPlaying() || !playListIsChecked()) return;
+
     NewQFrame * frame = findCheckedPlayListFrame();
     QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
     QLayoutItem *item = hLayout->itemAt(1);
@@ -262,75 +268,77 @@ void MainWindow::prevMusic() {
     playMusic(music);
 }
 
+void MainWindow::extracted(Node<Music> *&deleteMusic, NewQFrame *&tmpFrame) {
+    for (auto it = musicMap.begin(); it != musicMap.end(); ++it) {
+        if (deleteMusic->getData().getTitle() == it.value().getTitle()) {
+            tmpFrame = it.key();
+            break;
+        }
+    }
+}
 void MainWindow::deleteMusicPBClicked() {
-    if(mediaPlayer->isPlaying())
+    if (mediaPlayer->isPlaying())
         return;
     NewQMessageBox msgBox;
     QString songName;
-    NewQFrame * frame = findCheckedPlayListFrame();
-    QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
+    NewQFrame *frame = findCheckedPlayListFrame();
+    QHBoxLayout *hLayout = qobject_cast<QHBoxLayout *>(frame->layout());
     QLayoutItem *item = hLayout->itemAt(1);
-    QLabel *playListName = qobject_cast<QLabel*>(item->widget());
+    QLabel *playListName = qobject_cast<QLabel *>(item->widget());
 
     LinkList<Music> checkedPlayList = playLists[playListName->text()];
 
-    if(checkedPlayList.getSize() == 0)
+    if (checkedPlayList.getSize() == 0)
         return;
 
-    Node<Music>* tmp = checkedPlayList.getHead();
-    while(tmp != nullptr) {
+    Node<Music> *tmp = checkedPlayList.getHead();
+    while (tmp != nullptr) {
         msgBox.addItem(tmp->getData().getTitle());
         tmp = tmp->getNext();
     }
 
-    Node<Music> * deleteMusic;
+    Node<Music> *deleteMusic;
     msgBox.setWindowTitle("Delete Music");
     msgBox.setLabelText("Select Music You Want To Delete : ");
 
-    if(msgBox.exec() == QDialog::Accepted) {
+    if (msgBox.exec() == QDialog::Accepted) {
         songName = msgBox.getSelectedItem();
         deleteMusic = findMusic(songName, checkedPlayList);
 
-        NewQFrame* tmpFrame;
-        for(auto it = musicMap.begin(); it != musicMap.end(); ++it) {
-            if(deleteMusic->getData().getTitle() == it.value().getTitle()) {
-                tmpFrame = it.key();
-                break;
-            }
-        }
+        NewQFrame *tmpFrame;
+        extracted(deleteMusic, tmpFrame);
 
-        QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(tmpFrame->layout());
+        QHBoxLayout *hLayout = qobject_cast<QHBoxLayout *>(tmpFrame->layout());
         QLayoutItem *item = hLayout->itemAt(0);
-        QPushButton *icon = qobject_cast<QPushButton*>(item->widget());
+        QPushButton *icon = qobject_cast<QPushButton *>(item->widget());
         delete icon;
         item = nullptr;
         item = hLayout->itemAt(0);
-        QLabel *label = qobject_cast<QLabel*>(item->widget());
+        QLabel *label = qobject_cast<QLabel *>(item->widget());
         delete label;
         delete hLayout;
 
-        for(auto it = musicMap.begin(); it != musicMap.end(); ++it) {
-            if(it.key() == tmpFrame){
+        for (auto it = musicMap.begin(); it != musicMap.end(); ++it) {
+            if (it.key() == tmpFrame) {
                 musicMap.erase(it);
                 break;
             }
         }
         delete tmpFrame;
 
-        if(playingMusic == deleteMusic->getData().getAddress()) {
+        if (playingMusic == deleteMusic->getData().getAddress()) {
             ui->songNameL->setText("Music Name");
             playingMusic = "";
             ui->horizontalSlider->setTickInterval(0);
         }
-
 
         checkedPlayList.deleteData(&deleteMusic);
 
         playListMap[frame] = checkedPlayList.getHead();
         playLists[playListName->text()] = checkedPlayList;
 
-
-    }else return;
+    } else
+        return;
 }
 
 void MainWindow::checkMusicFinished() {
@@ -525,6 +533,7 @@ void MainWindow::makeAndSetMusicsWidget(Music music) {
 
 void MainWindow::playAndStopMusic() {
     if(playingMusic == "") {
+        if(!playListIsChecked()) return;
         NewQFrame * frame = findCheckedPlayListFrame();
         QHBoxLayout *hLayout = qobject_cast<QHBoxLayout*>(frame->layout());
         QLayoutItem *item = hLayout->itemAt(1);

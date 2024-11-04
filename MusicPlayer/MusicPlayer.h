@@ -37,7 +37,8 @@ private slots :
     void loopPBClicked ();
     void nextMusic ();
     void prevMusic ();
-    void deleteMusicPBClicked ();
+    void extracted(Node<Music> *&deleteMusic, NewQFrame *&tmpFrame);
+    void deleteMusicPBClicked();
     void checkMusicFinished ();
     void searchPBClicked ();
 
