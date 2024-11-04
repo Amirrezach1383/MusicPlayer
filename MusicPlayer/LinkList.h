@@ -155,12 +155,16 @@ public:
             tail = nullptr;
             delete (*data);
         }
-        else if((*data) == head) {
+        else if((*data) == head && !this->isLooped()) {
             Node<T> * tmp = head->next;
             tmp->prev = nullptr;
             head = head->next;
             delete (*data);
-            // delete data;
+        }
+        else if ((*data) == tail && !this->isLooped()) {
+            tail->getPrev()->setNext(nullptr);
+            tail = tail->getPrev();
+            delete (*data);
         }
         else {
             (*data)->getPrev()->setNext((*data)->getNext());

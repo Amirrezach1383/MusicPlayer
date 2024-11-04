@@ -20,27 +20,7 @@
    <string notr="true">QMainWindow {
 	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);
 }
-QPushButton {
-	border:none;
-	background: transparent;
-}
-QPushButton {
-	text-align : center;
-	background : transparent; 
-	border-radius : 5 px;
-	font: 9pt &quot;Playwrite DE Grund&quot;;
-/*	color: rgb(255, 255, 255);*/
-	height : 40 px;
-	border-radius:5px;
-}
-QPushButton:hover {
-	background-color: rgb(51, 51, 51);
-	font: 700 9pt &quot;Playwrite DE Grund&quot;;
-}
-QPushButton:checked {
-	background-color: rgb(51, 51, 51);
-	font: 700 9pt &quot;Playwrite DE Grund&quot;;
-}
+
 QLabel {
 	text-align : center;
 	background : transparent; 
@@ -49,9 +29,6 @@ QLabel {
 	color: rgb(255, 255, 255);
 	height : 40 px;
 	border-radius:5px;
-}
-QFrame {
-
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -84,6 +61,22 @@ QFrame {
            </item>
            <item>
             <widget class="QLineEdit" name="searchLE">
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    background-color: rgba(8, 0, 35, 0.8);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+font: 11pt &quot;Playwrite DE Grund&quot;;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+QLineEdit:focus {
+    background-color: rgba(8, 0, 35, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+</string>
+             </property>
              <property name="placeholderText">
               <string>Search</string>
              </property>
@@ -91,6 +84,29 @@ QFrame {
            </item>
            <item>
             <widget class="QPushButton" name="searchPB">
+             <property name="styleSheet">
+              <string notr="true">
+
+QPushButton {
+	text-align : center;
+
+	border-radius : 5 px;
+color: white;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	height : 40 px;
+	border-radius:5px;
+padding: 8px 16px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QPushButton:checked {
+	background-color: rgba(5, 0, 25, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -155,6 +171,27 @@ QFrame {
               </item>
               <item>
                <widget class="QPushButton" name="addPlayListPB">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	text-align : center;
+	    background-color: rgba(8, 0, 35, 0.8);
+	border-radius : 5 px;
+color: white;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	height : 40 px;
+	border-radius:5px;
+padding: 8px 16px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QPushButton:checked {
+	background-color: rgba(5, 0, 25, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
+                </property>
                 <property name="text">
                  <string>Add Play List</string>
                 </property>
@@ -175,7 +212,12 @@ QFrame {
             <item>
              <widget class="QScrollArea" name="playListsSongsSA">
               <property name="styleSheet">
-               <string notr="true"/>
+               <string notr="true">QScrollArea {
+	border-radius:5px;
+	background: rgba(8, 0, 35, 204); 
+	border: transparent;
+}
+</string>
               </property>
               <property name="widgetResizable">
                <bool>true</bool>
@@ -185,9 +227,15 @@ QFrame {
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>396</width>
-                 <height>625</height>
+                 <width>398</width>
+                 <height>579</height>
                 </rect>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QWidget {	
+	border:none;
+	background: transparent;
+}</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_7">
                 <item>
@@ -239,6 +287,27 @@ QFrame {
               </item>
               <item>
                <widget class="QPushButton" name="addMusicPB">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton {
+	text-align : center;
+	    background-color: rgba(8, 0, 35, 0.8);
+	border-radius : 5 px;
+color: white;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	height : 40 px;
+	border-radius:5px;
+padding: 8px 16px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QPushButton:checked {
+	background-color: rgba(5, 0, 25, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
+                </property>
                 <property name="text">
                  <string>Add Music</string>
                 </property>
@@ -259,13 +328,8 @@ QFrame {
             <item>
              <widget class="QScrollArea" name="musicsSA">
               <property name="styleSheet">
-               <string notr="true">QPushButton {
-        border:none;
-        background: transparent;
-        text-align : center;
-}
-QScrollArea { 
-
+               <string notr="true">QScrollArea { 
+	border-radius:5px;
 	background: rgba(8, 0, 35, 204); 
 	border: transparent;
 }</string>
@@ -279,14 +343,14 @@ QScrollArea {
                  <x>0</x>
                  <y>0</y>
                  <width>398</width>
-                 <height>583</height>
+                 <height>519</height>
                 </rect>
                </property>
                <property name="styleSheet">
-                <string notr="true">QWidget {
+                <string notr="true">QWidget {	
+	border:none;
 	background: transparent;
-}
-</string>
+}</string>
                </property>
                <layout class="QVBoxLayout" name="verticalLayout_8">
                 <item>
@@ -320,6 +384,27 @@ QScrollArea {
             </item>
             <item>
              <widget class="QPushButton" name="deleteMusicPB">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	text-align : center;
+	    background-color: rgba(8, 0, 35, 0.8);
+	border-radius : 5 px;
+color: white;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	height : 40 px;
+	border-radius:5px;
+padding: 8px 16px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QPushButton:checked {
+	background-color: rgba(5, 0, 25, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
+              </property>
               <property name="text">
                <string>Delete Music</string>
               </property>
@@ -446,6 +531,27 @@ QSlider::handle:disabled {
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	text-align : center;
+
+	border-radius : 5 px;
+color: white;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	height : 40 px;
+	border-radius:5px;
+padding: 8px 16px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QPushButton:checked {
+	background-color: rgba(5, 0, 25, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -482,6 +588,26 @@ QSlider::handle:disabled {
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	border:none;
+	background: transparent;
+}
+QPushButton {
+	text-align : center;
+	background : transparent; 
+	border-radius : 5 px;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+/*	color: rgb(255, 255, 255);*/
+	height : 40 px;
+	border-radius:5px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -517,15 +643,23 @@ QSlider::handle:disabled {
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
+	border:none;
+	background: transparent;
+}
+QPushButton {
 	text-align : center;
 	background : transparent; 
 	border-radius : 5 px;
 	font: 9pt &quot;Playwrite DE Grund&quot;;
-	color: rgb(255, 255, 255);
+/*	color: rgb(255, 255, 255);*/
 	height : 40 px;
-	padding-left:5px;
 	border-radius:5px;
-}</string>
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
            </property>
            <property name="text">
             <string/>
@@ -564,6 +698,26 @@ QSlider::handle:disabled {
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	border:none;
+	background: transparent;
+}
+QPushButton {
+	text-align : center;
+	background : transparent; 
+	border-radius : 5 px;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+/*	color: rgb(255, 255, 255);*/
+	height : 40 px;
+	border-radius:5px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
+           </property>
            <property name="text">
             <string/>
            </property>
@@ -596,6 +750,31 @@ QSlider::handle:disabled {
           <widget class="QPushButton" name="shufflePB">
            <property name="cursor">
             <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	border:none;
+	background: transparent;
+}
+QPushButton {
+	text-align : center;
+
+	border-radius : 5 px;
+color: white;
+	font: 9pt &quot;Playwrite DE Grund&quot;;
+	height : 40 px;
+	border-radius:5px;
+padding: 8px 16px;
+}
+QPushButton:hover {
+	 background-color: rgba(8, 0, 35, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+QPushButton:checked {
+	background-color: rgba(5, 0, 25, 1); 
+	font: 700 9pt &quot;Playwrite DE Grund&quot;;
+}
+</string>
            </property>
            <property name="text">
             <string/>

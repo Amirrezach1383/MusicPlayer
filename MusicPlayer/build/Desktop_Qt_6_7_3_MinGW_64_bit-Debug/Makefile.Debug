@@ -388,6 +388,8 @@ debug/moc_MusicPlayer.cpp: ../../MusicPlayer.h \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/QtN/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/QtN/6.7.3/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qgraphicseffect.h \
 		debug/moc_predefs.h \
 		C:/QtN/6.7.3/mingw_64/bin/moc.exe
 	C:\QtN\6.7.3\mingw_64\bin\moc.exe $(DEFINES) --include "E:/Code/4031/DataStracture/Music Player MiniProject/MusicPlayer/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/QtN/6.7.3/mingw_64/mkspecs/win32-g++ -I"E:/Code/4031/DataStracture/Music Player MiniProject/MusicPlayer" -IC:/QtN/6.7.3/mingw_64/include -IC:/QtN/6.7.3/mingw_64/include/QtMultimedia -IC:/QtN/6.7.3/mingw_64/include/QtWidgets -IC:/QtN/6.7.3/mingw_64/include/QtGui -IC:/QtN/6.7.3/mingw_64/include/QtNetwork -IC:/QtN/6.7.3/mingw_64/include/QtCore -I. -IC:/QtN/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/QtN/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/QtN/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/QtN/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/QtN/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/QtN/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\..\MusicPlayer.h -o debug\moc_MusicPlayer.cpp
@@ -1081,6 +1083,8 @@ debug/MusicPlayer.o: ../../MusicPlayer.cpp ../../MusicPlayer.h \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/QtN/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/QtN/6.7.3/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qgraphicseffect.h \
 		ui_MusicPlayer.h \
 		C:/QtN/6.7.3/mingw_64/include/QtCore/QVariant \
 		C:/QtN/6.7.3/mingw_64/include/QtGui/QIcon \
@@ -1353,6 +1357,8 @@ debug/main.o: ../../main.cpp ../../MusicPlayer.h \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/QtN/6.7.3/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/QtN/6.7.3/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qgraphicseffect.h \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/QApplication \
 		C:/QtN/6.7.3/mingw_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp

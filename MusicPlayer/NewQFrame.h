@@ -12,7 +12,7 @@ public:
             "text-align: center;"
             "border-radius: 5px;"
             "font: 9pt \" Playwrite DE Grund\";"
-            "color: rgb(255, 255, 255);"
+            "background-color: rgba(8, 0, 35, 0.8);"
             "height: 40px;"
             "}"
 
@@ -25,6 +25,26 @@ public:
             "background-color: rgb(51, 51, 51);"
             "font: 700 9pt \"Playwrite DE Grund\";"
             "}"
+
+            // QPushButton {
+            //     text-align : center;
+
+            //     border-radius : 5 px;
+            // color: white;
+            // font: 9pt "Playwrite DE Grund";
+            // height : 40 px;
+            //     border-radius:5px;
+            // padding: 8px 16px;
+            // }
+            // QPushButton:hover {
+            //     background-color: rgba(8, 0, 35, 1);
+            // font: 700 9pt "Playwrite DE Grund";
+            // }
+            // QPushButton:checked {
+            //     background-color: rgba(5, 0, 25, 1);
+            // font: 700 9pt "Playwrite DE Grund";
+            // }
+
             );
     }
     bool isChecked () {

@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(mediaPlayer, &QMediaPlayer::durationChanged, ui->horizontalSlider, &QSlider::setMaximum);
     connect(mediaPlayer, &QMediaPlayer::positionChanged, ui->horizontalSlider, &QSlider::setValue);
     connect(ui->horizontalSlider, &QSlider::sliderMoved, mediaPlayer, &QMediaPlayer::setPosition);
+
     connect(ui->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(checkMusicFinished()));
 
     connect(ui->addMusicPB, SIGNAL(clicked(bool)), this, SLOT(addMusicPB()));
@@ -30,17 +31,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->deleteMusicPB, SIGNAL(clicked(bool)), this, SLOT(deleteMusicPBClicked()));
 
     makeAndSetPlayListWidget();
-
-    // QGraphicsOpacityEffect *effect = new QGraphicsOpacityEffect;
-    // effect->setOpacity(0.8);
-
-    // ui->playListsSongsSA->setGraphicsEffect(effect);
-    // ui->musicsSA->setGraphicsEffect(effect);
-
-    // // effect->setOpacity()
-    // ui->musicFrame->setWindowOpacity(1);
-    // ui->musicFrame->setWindowOpacity(1);
-
 }
 
 MainWindow::~MainWindow() {
@@ -305,6 +295,7 @@ void MainWindow::deleteMusicPBClicked() {
         for(auto it = musicMap.begin(); it != musicMap.end(); ++it) {
             if(deleteMusic->getData().getTitle() == it.value().getTitle()) {
                 tmpFrame = it.key();
+                break;
             }
         }
 
@@ -368,6 +359,7 @@ Node<Music> *MainWindow::findMusic(QString name, LinkList<Music> &list) {
     while(tmp != nullptr) {
         if(tmp->getData().getTitle() == name)
             return tmp;
+        tmp = tmp->getNext();
     }
     return tmp;
 }

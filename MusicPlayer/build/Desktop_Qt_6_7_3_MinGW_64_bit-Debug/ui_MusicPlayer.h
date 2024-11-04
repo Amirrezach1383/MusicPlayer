@@ -95,27 +95,7 @@ public:
         MainWindow->setStyleSheet(QString::fromUtf8("QMainWindow {\n"
 "	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);\n"
 "}\n"
-"QPushButton {\n"
-"	border:none;\n"
-"	background: transparent;\n"
-"}\n"
-"QPushButton {\n"
-"	text-align : center;\n"
-"	background : transparent; \n"
-"	border-radius : 5 px;\n"
-"	font: 9pt \"Playwrite DE Grund\";\n"
-"/*	color: rgb(255, 255, 255);*/\n"
-"	height : 40 px;\n"
-"	border-radius:5px;\n"
-"}\n"
-"QPushButton:hover {\n"
-"	background-color: rgb(51, 51, 51);\n"
-"	font: 700 9pt \"Playwrite DE Grund\";\n"
-"}\n"
-"QPushButton:checked {\n"
-"	background-color: rgb(51, 51, 51);\n"
-"	font: 700 9pt \"Playwrite DE Grund\";\n"
-"}\n"
+"\n"
 "QLabel {\n"
 "	text-align : center;\n"
 "	background : transparent; \n"
@@ -124,9 +104,6 @@ public:
 "	color: rgb(255, 255, 255);\n"
 "	height : 40 px;\n"
 "	border-radius:5px;\n"
-"}\n"
-"QFrame {\n"
-"\n"
 "}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -148,11 +125,46 @@ public:
 
         searchLE = new QLineEdit(searchWidget);
         searchLE->setObjectName("searchLE");
+        searchLE->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
+"    background-color: rgba(8, 0, 35, 0.8);\n"
+"    color: white;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.3);\n"
+"font: 11pt \"Playwrite DE Grund\";\n"
+"    border-radius: 5px;\n"
+"    padding: 4px;\n"
+"}\n"
+"\n"
+"QLineEdit:focus {\n"
+"    background-color: rgba(8, 0, 35, 1);\n"
+"    border: 1px solid rgba(255, 255, 255, 0.6);\n"
+"}\n"
+""));
 
         horizontalLayout->addWidget(searchLE);
 
         searchPB = new QPushButton(searchWidget);
         searchPB->setObjectName("searchPB");
+        searchPB->setStyleSheet(QString::fromUtf8("\n"
+"\n"
+"QPushButton {\n"
+"	text-align : center;\n"
+"\n"
+"	border-radius : 5 px;\n"
+"color: white;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"padding: 8px 16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QPushButton:checked {\n"
+"	background-color: rgba(5, 0, 25, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/Icons/search.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         searchPB->setIcon(icon);
@@ -197,6 +209,25 @@ public:
 
         addPlayListPB = new QPushButton(widget);
         addPlayListPB->setObjectName("addPlayListPB");
+        addPlayListPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	text-align : center;\n"
+"	    background-color: rgba(8, 0, 35, 0.8);\n"
+"	border-radius : 5 px;\n"
+"color: white;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"padding: 8px 16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QPushButton:checked {\n"
+"	background-color: rgba(5, 0, 25, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/Icons/plus.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         addPlayListPB->setIcon(icon1);
@@ -209,11 +240,20 @@ public:
 
         playListsSongsSA = new QScrollArea(widget);
         playListsSongsSA->setObjectName("playListsSongsSA");
-        playListsSongsSA->setStyleSheet(QString::fromUtf8(""));
+        playListsSongsSA->setStyleSheet(QString::fromUtf8("QScrollArea {\n"
+"	border-radius:5px;\n"
+"	background: rgba(8, 0, 35, 204); \n"
+"	border: transparent;\n"
+"}\n"
+""));
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 396, 625));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 398, 579));
+        scrollAreaWidgetContents->setStyleSheet(QString::fromUtf8("QWidget {	\n"
+"	border:none;\n"
+"	background: transparent;\n"
+"}"));
         verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_7->setObjectName("verticalLayout_7");
         frame_2 = new QFrame(scrollAreaWidgetContents);
@@ -250,6 +290,25 @@ public:
 
         addMusicPB = new QPushButton(widget_2);
         addMusicPB->setObjectName("addMusicPB");
+        addMusicPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	text-align : center;\n"
+"	    background-color: rgba(8, 0, 35, 0.8);\n"
+"	border-radius : 5 px;\n"
+"color: white;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"padding: 8px 16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QPushButton:checked {\n"
+"	background-color: rgba(5, 0, 25, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         addMusicPB->setIcon(icon1);
         addMusicPB->setIconSize(QSize(20, 20));
 
@@ -260,24 +319,19 @@ public:
 
         musicsSA = new QScrollArea(widget_2);
         musicsSA->setObjectName("musicsSA");
-        musicsSA->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"        border:none;\n"
-"        background: transparent;\n"
-"        text-align : center;\n"
-"}\n"
-"QScrollArea { \n"
-"\n"
+        musicsSA->setStyleSheet(QString::fromUtf8("QScrollArea { \n"
+"	border-radius:5px;\n"
 "	background: rgba(8, 0, 35, 204); \n"
 "	border: transparent;\n"
 "}"));
         musicsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 398, 583));
-        scrollAreaWidgetContents_2->setStyleSheet(QString::fromUtf8("QWidget {\n"
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 398, 519));
+        scrollAreaWidgetContents_2->setStyleSheet(QString::fromUtf8("QWidget {	\n"
+"	border:none;\n"
 "	background: transparent;\n"
-"}\n"
-""));
+"}"));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setObjectName("verticalLayout_8");
         musicFrame = new QFrame(scrollAreaWidgetContents_2);
@@ -299,6 +353,25 @@ public:
 
         deleteMusicPB = new QPushButton(widget_2);
         deleteMusicPB->setObjectName("deleteMusicPB");
+        deleteMusicPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	text-align : center;\n"
+"	    background-color: rgba(8, 0, 35, 0.8);\n"
+"	border-radius : 5 px;\n"
+"color: white;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"padding: 8px 16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QPushButton:checked {\n"
+"	background-color: rgba(5, 0, 25, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon2;
         icon2.addFile(QString::fromUtf8(":/Icons/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         deleteMusicPB->setIcon(icon2);
@@ -384,6 +457,25 @@ public:
         loopPB = new QPushButton(widget_3);
         loopPB->setObjectName("loopPB");
         loopPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        loopPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	text-align : center;\n"
+"\n"
+"	border-radius : 5 px;\n"
+"color: white;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"padding: 8px 16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QPushButton:checked {\n"
+"	background-color: rgba(5, 0, 25, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/Icons/loop.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         loopPB->setIcon(icon3);
@@ -399,6 +491,24 @@ public:
         prevPB = new QPushButton(widget_3);
         prevPB->setObjectName("prevPB");
         prevPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        prevPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border:none;\n"
+"	background: transparent;\n"
+"}\n"
+"QPushButton {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	border-radius : 5 px;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"/*	color: rgb(255, 255, 255);*/\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon4;
         icon4.addFile(QString::fromUtf8(":/Icons/prev.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         prevPB->setIcon(icon4);
@@ -414,15 +524,23 @@ public:
         StopPB->setObjectName("StopPB");
         StopPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         StopPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border:none;\n"
+"	background: transparent;\n"
+"}\n"
+"QPushButton {\n"
 "	text-align : center;\n"
 "	background : transparent; \n"
 "	border-radius : 5 px;\n"
 "	font: 9pt \"Playwrite DE Grund\";\n"
-"	color: rgb(255, 255, 255);\n"
+"/*	color: rgb(255, 255, 255);*/\n"
 "	height : 40 px;\n"
-"	padding-left:5px;\n"
 "	border-radius:5px;\n"
-"}"));
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon5;
         icon5.addFile(QString::fromUtf8(":/Icons/play-button-arrowhead.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         icon5.addFile(QString::fromUtf8(":/Icons/pause.png"), QSize(), QIcon::Mode::Normal, QIcon::State::On);
@@ -439,6 +557,24 @@ public:
         nextPB = new QPushButton(widget_3);
         nextPB->setObjectName("nextPB");
         nextPB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        nextPB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border:none;\n"
+"	background: transparent;\n"
+"}\n"
+"QPushButton {\n"
+"	text-align : center;\n"
+"	background : transparent; \n"
+"	border-radius : 5 px;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"/*	color: rgb(255, 255, 255);*/\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon6;
         icon6.addFile(QString::fromUtf8(":/Icons/next.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         nextPB->setIcon(icon6);
@@ -453,6 +589,29 @@ public:
         shufflePB = new QPushButton(widget_3);
         shufflePB->setObjectName("shufflePB");
         shufflePB->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        shufflePB->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"	border:none;\n"
+"	background: transparent;\n"
+"}\n"
+"QPushButton {\n"
+"	text-align : center;\n"
+"\n"
+"	border-radius : 5 px;\n"
+"color: white;\n"
+"	font: 9pt \"Playwrite DE Grund\";\n"
+"	height : 40 px;\n"
+"	border-radius:5px;\n"
+"padding: 8px 16px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"	 background-color: rgba(8, 0, 35, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+"QPushButton:checked {\n"
+"	background-color: rgba(5, 0, 25, 1); \n"
+"	font: 700 9pt \"Playwrite DE Grund\";\n"
+"}\n"
+""));
         QIcon icon7;
         icon7.addFile(QString::fromUtf8(":/Icons/shuffle.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         shufflePB->setIcon(icon7);
