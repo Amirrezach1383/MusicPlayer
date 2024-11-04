@@ -12,5 +12,7 @@
         <file>Icons/list.png</file>
         <file>Icons/music-notes.png</file>
         <file>Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png</file>
+        <file>Icons/icons8-music-50.png</file>
+        <file>Icons/icons8-music-100.png</file>
     </qresource>
 </RCC>

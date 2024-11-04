@@ -114,6 +114,7 @@ release/qrc_pictures.cpp: ../../pictures.qrc \
 		C:/QtN/6.7.3/mingw_64/bin/rcc.exe \
 		../../Icons/delete.png \
 		../../Icons/loop.png \
+		../../Icons/icons8-music-50.png \
 		../../Icons/plus.png \
 		../../Icons/music-notes.png \
 		../../Icons/search.png \
@@ -121,6 +122,7 @@ release/qrc_pictures.cpp: ../../pictures.qrc \
 		../../Icons/next.png \
 		../../Icons/prev.png \
 		../../Icons/list.png \
+		../../Icons/icons8-music-100.png \
 		../../Icons/a\ darker\ blue\ night\ sky\ background,\ size\ 850\ _\ 900\ pixels\ (1).png \
 		../../Icons/shuffle.png \
 		../../Icons/play-button-arrowhead.png

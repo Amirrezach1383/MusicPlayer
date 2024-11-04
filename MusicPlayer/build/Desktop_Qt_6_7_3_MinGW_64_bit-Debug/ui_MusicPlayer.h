@@ -92,6 +92,9 @@ public:
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(850, 900);
         MainWindow->setCursor(QCursor(Qt::CursorShape::ArrowCursor));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/Icons/icons8-music-100.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        MainWindow->setWindowIcon(icon);
         MainWindow->setStyleSheet(QString::fromUtf8("QMainWindow {\n"
 "	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);\n"
 "}\n"
@@ -157,9 +160,9 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/Icons/search.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        searchPB->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/Icons/search.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        searchPB->setIcon(icon1);
         searchPB->setIconSize(QSize(20, 20));
 
         horizontalLayout->addWidget(searchPB);
@@ -229,9 +232,9 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/Icons/plus.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        addPlayListPB->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/Icons/plus.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        addPlayListPB->setIcon(icon2);
         addPlayListPB->setIconSize(QSize(20, 20));
 
         horizontalLayout_2->addWidget(addPlayListPB);
@@ -250,7 +253,7 @@ public:
         playListsSongsSA->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 398, 582));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 398, 583));
         scrollAreaWidgetContents->setStyleSheet(QString::fromUtf8("QWidget {	\n"
 "	border:none;\n"
 "	background: transparent;\n"
@@ -319,7 +322,7 @@ public:
 "}\n"
 "\n"
 ""));
-        addMusicPB->setIcon(icon1);
+        addMusicPB->setIcon(icon2);
         addMusicPB->setIconSize(QSize(20, 20));
 
         horizontalLayout_3->addWidget(addMusicPB);
@@ -337,7 +340,7 @@ public:
         musicsSA->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName("scrollAreaWidgetContents_2");
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 398, 522));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 398, 523));
         scrollAreaWidgetContents_2->setStyleSheet(QString::fromUtf8("QWidget {	\n"
 "	border:none;\n"
 "	background: transparent;\n"
@@ -382,9 +385,9 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/Icons/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        deleteMusicPB->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/Icons/delete.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        deleteMusicPB->setIcon(icon3);
         deleteMusicPB->setIconSize(QSize(20, 20));
 
         verticalLayout_4->addWidget(deleteMusicPB);
@@ -430,35 +433,24 @@ public:
 
         horizontalSlider = new QSlider(widget_3);
         horizontalSlider->setObjectName("horizontalSlider");
-        horizontalSlider->setStyleSheet(QString::fromUtf8("QSlider {\n"
-"    background: #1C1C1C;\n"
-"    border: 1px solid #333;\n"
-"    height: 10px;\n"
+        horizontalSlider->setStyleSheet(QString::fromUtf8("QSlider::groove:horizontal {\n"
+"    border: 1px solid #080023;\n"
+"    background: rgba(8, 0, 35, 0.6);\n"
+"    height: 8px;\n"
+"    border-radius: 4px;\n"
 "}\n"
 "\n"
-"QSlider::groove:horizontal {\n"
-"    background: #333;\n"
-"    height: 4px;\n"
+"QSlider::handle:horizontal {\n"
+"   /*background-color: rgba(3, 0, 23, 1); A slightly lighter color */\n"
+"	background-color: white;\n"
+"    width: 8 px;\n"
+"    height:8 px;\n"
+"    border-radius:4px; /* Creates a circular handle */\n"
 "}\n"
 "\n"
-"QSlider::handle {\n"
-"    background: #555; /* Dark gray handle */\n"
-"    width: 24px; /* Increased width for circular shape */\n"
-"    height: 24px; /* Height matches width for a circle */\n"
-"    margin: -10px 0; /* Centering the handle on the track */\n"
-"    border-radius: 12px; /* Rounded handle for a circle */\n"
-"}\n"
-"\n"
-"QSlider::handle:hover {\n"
-"    background: #CCCCCC; /* Light gray on hover */\n"
-"}\n"
-"\n"
-"QSlider:disabled {\n"
-"    background: #2A2A2A;\n"
-"}\n"
-"\n"
-"QSlider::handle:disabled {\n"
-"    background: #777;\n"
+"QSlider::sub-page:horizontal {\n"
+"    background: rgba(8, 0, 35, 0.9);\n"
+"    border-radius: 4px;\n"
 "}\n"
 ""));
         horizontalSlider->setOrientation(Qt::Orientation::Horizontal);
@@ -494,9 +486,9 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/Icons/loop.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        loopPB->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/Icons/loop.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        loopPB->setIcon(icon4);
         loopPB->setIconSize(QSize(20, 20));
         loopPB->setCheckable(true);
 
@@ -527,9 +519,9 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/Icons/prev.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        prevPB->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/Icons/prev.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        prevPB->setIcon(icon5);
         prevPB->setIconSize(QSize(20, 20));
 
         horizontalLayout_6->addWidget(prevPB);
@@ -559,10 +551,10 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/Icons/play-button-arrowhead.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        icon5.addFile(QString::fromUtf8(":/Icons/pause.png"), QSize(), QIcon::Mode::Normal, QIcon::State::On);
-        StopPB->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/Icons/play-button-arrowhead.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        icon6.addFile(QString::fromUtf8(":/Icons/pause.png"), QSize(), QIcon::Mode::Normal, QIcon::State::On);
+        StopPB->setIcon(icon6);
         StopPB->setIconSize(QSize(20, 20));
         StopPB->setCheckable(true);
 
@@ -593,9 +585,9 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/Icons/next.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        nextPB->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/Icons/next.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        nextPB->setIcon(icon7);
         nextPB->setIconSize(QSize(20, 20));
 
         horizontalLayout_6->addWidget(nextPB);
@@ -630,9 +622,9 @@ public:
 "	font: 700 9pt \"Playwrite DE Grund\";\n"
 "}\n"
 ""));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/Icons/shuffle.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
-        shufflePB->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/Icons/shuffle.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        shufflePB->setIcon(icon8);
         shufflePB->setIconSize(QSize(20, 20));
         shufflePB->setCheckable(true);
 
@@ -666,7 +658,7 @@ public:
         musicL->setText(QCoreApplication::translate("MainWindow", "Musics", nullptr));
         addMusicPB->setText(QCoreApplication::translate("MainWindow", "Add Music", nullptr));
         deleteMusicPB->setText(QCoreApplication::translate("MainWindow", "Delete Music", nullptr));
-        songNameL->setText(QCoreApplication::translate("MainWindow", "song name", nullptr));
+        songNameL->setText(QCoreApplication::translate("MainWindow", "Music name", nullptr));
         loopPB->setText(QString());
         prevPB->setText(QString());
         StopPB->setText(QString());

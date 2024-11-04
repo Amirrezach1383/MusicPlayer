@@ -31,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->deleteMusicPB, SIGNAL(clicked(bool)), this, SLOT(deleteMusicPBClicked()));
 
     makeAndSetPlayListWidget();
+
 }
 
 MainWindow::~MainWindow() {

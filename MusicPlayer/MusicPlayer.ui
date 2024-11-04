@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>Music Player</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="pictures.qrc">
+    <normaloff>:/Icons/icons8-music-100.png</normaloff>:/Icons/icons8-music-100.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
 	background-image: url(:/Icons/a darker blue night sky background, size 850 _ 900 pixels (1).png);
@@ -233,7 +237,7 @@ QPushButton:checked {
                  <x>0</x>
                  <y>0</y>
                  <width>398</width>
-                 <height>582</height>
+                 <height>583</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -359,7 +363,7 @@ QPushButton:checked {
                  <x>0</x>
                  <y>0</y>
                  <width>398</width>
-                 <height>522</height>
+                 <height>523</height>
                 </rect>
                </property>
                <property name="styleSheet">
@@ -475,7 +479,7 @@ QPushButton:checked {
 }</string>
            </property>
            <property name="text">
-            <string>song name</string>
+            <string>Music name</string>
            </property>
           </widget>
          </item>
@@ -497,35 +501,24 @@ QPushButton:checked {
        <item>
         <widget class="QSlider" name="horizontalSlider">
          <property name="styleSheet">
-          <string notr="true">QSlider {
-    background: #1C1C1C;
-    border: 1px solid #333;
-    height: 10px;
+          <string notr="true">QSlider::groove:horizontal {
+    border: 1px solid #080023;
+    background: rgba(8, 0, 35, 0.6);
+    height: 8px;
+    border-radius: 4px;
 }
 
-QSlider::groove:horizontal {
-    background: #333;
-    height: 4px;
+QSlider::handle:horizontal {
+   /*background-color: rgba(3, 0, 23, 1); A slightly lighter color */
+	background-color: white;
+    width: 8 px;
+    height:8 px;
+    border-radius:4px; /* Creates a circular handle */
 }
 
-QSlider::handle {
-    background: #555; /* Dark gray handle */
-    width: 24px; /* Increased width for circular shape */
-    height: 24px; /* Height matches width for a circle */
-    margin: -10px 0; /* Centering the handle on the track */
-    border-radius: 12px; /* Rounded handle for a circle */
-}
-
-QSlider::handle:hover {
-    background: #CCCCCC; /* Light gray on hover */
-}
-
-QSlider:disabled {
-    background: #2A2A2A;
-}
-
-QSlider::handle:disabled {
-    background: #777;
+QSlider::sub-page:horizontal {
+    background: rgba(8, 0, 35, 0.9);
+    border-radius: 4px;
 }
 </string>
          </property>
